@@ -58,14 +58,17 @@
     });
   }
 
-  // ── Coordinate HUD Readout ──
+  // ── Coordinate HUD Readout (Simulated GPS) ──
   const coordEl = document.getElementById('coord-readout');
   if (coordEl) {
-    document.addEventListener('mousemove', (e) => {
-      const x = ((e.clientX / window.innerWidth) * 100).toFixed(2);
-      const y = ((e.clientY / window.innerHeight) * 100).toFixed(2);
-      coordEl.textContent = `LAT: ${x}° | LON: ${y}°`;
-    });
+    let lat = 19.1334;
+    let lon = 72.8382;
+    setInterval(() => {
+      lat += (Math.random() - 0.5) * 0.0006;
+      lon += (Math.random() - 0.5) * 0.0006;
+      coordEl.textContent = `LAT: ${lat.toFixed(4)}° N | LON: ${lon.toFixed(4)}° E`;
+    }, 2000);
+    coordEl.textContent = `LAT: ${lat.toFixed(4)}° N | LON: ${lon.toFixed(4)}° E`;
   }
 
   // ── Timestamp HUD ──
