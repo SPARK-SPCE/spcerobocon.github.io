@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SPARK | Team</title>
+    <link rel="stylesheet" href="/spcerobocon.github.io/src/styles/fonts.css" />
+    <link rel="stylesheet" href="/spcerobocon.github.io/src/styles/navbar.css" />
+    <link rel="stylesheet" href="/spcerobocon.github.io/src/styles/footer.css" />
+    <link rel="icon" type="image/png" href="/spcerobocon.github.io/assets/img/favicon.svg" />
+    <link rel="stylesheet" href="/spcerobocon.github.io/src/styles/cursor.css" />
+    <link rel="stylesheet" href="/spcerobocon.github.io/src/styles/team.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="navbar-placeholder"></div>
+    <main>
+      <h1>TEAM</h1>
+      <div class="year-switcher" id="year-switcher">
+        <button class="year-btn active" data-year="active">ACTIVE TEAM</button>
+      </div>
+      <div class="team-grid" id="team-grid"></div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+    <script src="/spcerobocon.github.io/src/scripts/cursor.js"></script>
+    <script src="/spcerobocon.github.io/src/scripts/mobile-navbar.js"></script>
+    <script src="/spcerobocon.github.io/src/scripts/componentLoader.js"></script>
+
+    <script>
+      loadComponent("navbar-placeholder", "/spcerobocon.github.io/src/components/navbar.html");
+      loadComponent("footer-placeholder", "/spcerobocon.github.io/src/components/footer.html");
+    </script>
+    <script src="/spcerobocon.github.io/src/scripts/team.js"></script>
+  </body>
+</html>

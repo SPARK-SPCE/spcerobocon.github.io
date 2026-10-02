@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SPARK Blog | Technical Articles & Insights</title>
+    <meta name="description" content="Explore technical articles, insights, and research from SPARK. Deep dives into robotics, AI, and cutting-edge technology." />
+    <meta name="keywords" content="SPARK blog, technical articles, robotics, AI, technology insights, research" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="SPARK" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spark.com/blog" />
+    <meta property="og:title" content="SPARK Blog | Technical Articles & Insights" />
+    <meta property="og:description" content="Explore technical articles, insights, and research from SPARK." />
+    <meta property="og:image" content="/spcerobocon.github.io/assets/img/favicon.svg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://spark.com/blog" />
+    <meta property="twitter:title" content="SPARK Blog | Technical Articles & Insights" />
+    <meta property="twitter:description" content="Explore technical articles, insights, and research from SPARK." />
+    <meta property="twitter:image" content="/spcerobocon.github.io/assets/img/favicon.svg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://spark.com/blog" />
+    
+    <link rel="stylesheet" href="/spcerobocon.github.io/src/styles/fonts.css" />
+    <link rel="stylesheet" href="/spcerobocon.github.io/src/styles/navbar.css" />
+    <link rel="stylesheet" href="/spcerobocon.github.io/src/styles/footer.css" />
+    <link rel="icon" type="image/png" href="/spcerobocon.github.io/assets/img/favicon.svg" />
+    <link rel="stylesheet" href="/spcerobocon.github.io/src/styles/cursor.css" />
+    <link rel="stylesheet" href="/spcerobocon.github.io/src/styles/blog.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "SPARK Blog",
+      "url": "https://spark.com/blog",
+      "description": "Technical articles and insights from SPARK"
+    }
+    </script>
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+    <main>
+      <section class="hero" aria-labelledby="blog-head">
+        <div class="left">
+          <h1 id="blog-head">Blog</h1>
+          <p class="tagline">
+            Technical insights, deep dives, and innovations from our team
+          </p>
+        </div>
+      </section>
+      <div class="blog-posts" id="blog-posts" aria-live="polite">
+        <div class="empty" id="empty-placeholder" style="display: none">
+          No blog posts found.
+        </div>
+      </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+    <script src="/spcerobocon.github.io/src/scripts/cursor.js"></script>
+    <script src="/spcerobocon.github.io/src/scripts/mobile-navbar.js"></script>
+    <script src="/spcerobocon.github.io/src/scripts/componentLoader.js"></script>
+    <script>
+      loadComponent("navbar-placeholder", "/spcerobocon.github.io/src/components/navbar.html");
+      loadComponent("footer-placeholder", "/spcerobocon.github.io/src/components/footer.html");
+    </script>
+    <script src="/spcerobocon.github.io/src/scripts/blog.js"></script>
+  </body>
+</html>
+
