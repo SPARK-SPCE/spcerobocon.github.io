@@ -3,66 +3,165 @@
     "name": "Kabir Patil",
     "photo": "/assets/img/team/kp.png",
     "role": "Captain",
-    "socials": []
+    "socials": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/spcerobocon_/"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/company/spce-robocon"
+      }
+    ]
   },
   {
     "name": "Siddharth Dabhane",
     "photo": "/assets/img/team/sd.png",
     "role": "Vice Captain",
-    "socials": []
+    "socials": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/spcerobocon_/"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/company/spce-robocon"
+      }
+    ]
   },
   {
     "name": "Sankalp Nagane",
     "photo": "/assets/img/team/sn.png",
     "role": "Manager",
-    "socials": []
+    "socials": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/spcerobocon_/"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/company/spce-robocon"
+      }
+    ]
   },
   {
     "name": "Mayank Nikumbh",
     "photo": "/assets/img/team/mn.png",
     "role": "Electronics Co-Head",
-    "socials": []
+    "socials": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/spcerobocon_/"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/company/spce-robocon"
+      }
+    ]
   },
   {
     "name": "Punit Gharat",
     "photo": "/assets/img/team/pg.png",
     "role": "Electronics Co-Head",
-    "socials": []
+    "socials": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/spcerobocon_/"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/company/spce-robocon"
+      }
+    ]
   },
   {
     "name": "Manjeet Sharma",
     "photo": "/assets/img/team/ms.png",
     "role": "Mech Co-Head",
-    "socials": []
+    "socials": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/spcerobocon_/"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/company/spce-robocon"
+      }
+    ]
   },
   {
     "name": "Shawn Massy",
     "photo": "/assets/img/team/sm.png",
     "role": "Mech Co-Head",
-    "socials": []
+    "socials": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/spcerobocon_/"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/company/spce-robocon"
+      }
+    ]
   },
   {
     "name": "Samyak Shelare",
     "photo": "/assets/img/team/ss.png",
     "role": "Coding Lead",
-    "socials": []
+    "socials": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/spcerobocon_/"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/company/spce-robocon"
+      }
+    ]
   },
   {
     "name": "Riddhi",
     "photo": "/assets/img/team/rn.png",
     "role": "Non-Tech",
-    "socials": []
+    "socials": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/spcerobocon_/"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/company/spce-robocon"
+      }
+    ]
   },
   {
     "name": "Prathamesh Kadam",
     "photo": "/assets/img/team/pk.png",
     "role": "Non-Tech",
-    "socials": []
+    "socials": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/spcerobocon_/"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/company/spce-robocon"
+      }
+    ]
   },
   {
     "name": "Vaishnavi Shinde",
     "photo": "/assets/img/team/vs.png",
     "role": "Non-Tech",
-    "socials": []
+    "socials": [
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/spcerobocon_/"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/company/spce-robocon"
+      }
+    ]
   }
 ]
