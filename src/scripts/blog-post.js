@@ -59,9 +59,9 @@ function getSlugFromURL() {
 // Check for cover image
 async function checkCoverImage(slug) {
   try {
-    const resp = await fetch(`/spcerobocon.github.io/content/${slug}/imgs/cover.webp`, { method: "HEAD" });
+    const resp = await fetch(`/content/${slug}/imgs/cover.webp`, { method: "HEAD" });
     if (resp.ok) {
-      return `/spcerobocon.github.io/content/${slug}/imgs/cover.webp`;
+      return `/content/${slug}/imgs/cover.webp`;
     }
   } catch (err) {
     // Ignore errors
@@ -72,7 +72,7 @@ async function checkCoverImage(slug) {
 // Load markdown content
 async function loadMarkdownContent(slug) {
   try {
-    const resp = await fetch(`/spcerobocon.github.io/content/${slug}/index.md`, { cache: "no-cache" });
+    const resp = await fetch(`/content/${slug}/index.md`, { cache: "no-cache" });
     if (!resp.ok) throw new Error(`Failed to load content for ${slug}`);
     return await resp.text();
   } catch (err) {
@@ -89,7 +89,7 @@ function processImagePaths(markdown, slug) {
       if (src.startsWith("http://") || src.startsWith("https://") || src.startsWith("/")) {
         return match;
       }
-      return `![${alt}](/spcerobocon.github.io/content/${slug}/${src})`;
+      return `![${alt}](/content/${slug}/${src})`;
     }
   );
 }
@@ -460,14 +460,14 @@ async function renderPost() {
   const slug = getSlugFromURL();
   if (!slug) {
     document.getElementById("blog-post-content").innerHTML =
-      '<div class="loading">Post not found. <a href="/spcerobocon.github.io/blog/">Return to blog</a></div>';
+      '<div class="loading">Post not found. <a href="/blog/">Return to blog</a></div>';
     return;
   }
 
   let markdown = await loadMarkdownContent(slug);
   if (!markdown) {
     document.getElementById("blog-post-content").innerHTML =
-      '<div class="loading">Post content not found. <a href="/spcerobocon.github.io/blog/">Return to blog</a></div>';
+      '<div class="loading">Post content not found. <a href="/blog/">Return to blog</a></div>';
     return;
   }
 
@@ -507,7 +507,7 @@ async function renderPost() {
   // Build post HTML
   const postHTML = `
     <div class="post-header">
-      <a href="/spcerobocon.github.io/blog/" class="back-to-blog-btn">
+      <a href="/blog/" class="back-to-blog-btn">
         <span>←</span>
         <span>Back to Blog</span>
       </a>

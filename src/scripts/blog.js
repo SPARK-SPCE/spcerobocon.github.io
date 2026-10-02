@@ -60,14 +60,14 @@ async function loadBlogPosts() {
     container.innerHTML = "";
     empty.style.display = "none";
 
-    const slugsResp = await fetch("/spcerobocon.github.io/src/data/blogs/slugs.json", { cache: "no-cache" });
+    const slugsResp = await fetch("/src/data/blogs/slugs.json", { cache: "no-cache" });
     if (!slugsResp.ok) throw new Error("Failed to load slugs");
     const slugs = await slugsResp.json();
 
     const posts = await Promise.all(
       slugs.map(async (slug) => {
         try {
-          const resp = await fetch(`/spcerobocon.github.io/content/${slug}/index.md`, { cache: "no-cache" });
+          const resp = await fetch(`/content/${slug}/index.md`, { cache: "no-cache" });
           if (!resp.ok) return null;
           const markdown = await resp.text();
           const { frontMatter } = parseFrontMatter(markdown);
@@ -123,9 +123,9 @@ async function loadBlogPosts() {
 
 async function checkCoverImage(slug) {
   try {
-    const resp = await fetch(`/spcerobocon.github.io/content/${slug}/imgs/cover.webp`, { method: "HEAD" });
+    const resp = await fetch(`/content/${slug}/imgs/cover.webp`, { method: "HEAD" });
     if (resp.ok) {
-      return `/spcerobocon.github.io/content/${slug}/imgs/cover.webp`;
+      return `/content/${slug}/imgs/cover.webp`;
     }
   } catch (err) {
     // Ignore errors
@@ -137,7 +137,7 @@ function renderBlogCards(posts, container) {
   posts.forEach((post, idx) => {
     const card = document.createElement("a");
     card.className = "blog-card";
-    card.href = `/spcerobocon.github.io/blog/posts/#/${post.slug}`;
+    card.href = `/blog/posts/#/${post.slug}`;
     card.setAttribute("tabindex", "0");
 
     const date = new Date(post.date);

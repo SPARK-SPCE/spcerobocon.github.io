@@ -1,67 +1,67 @@
 [
   {
     "name": "Kabir Patil",
-    "photo": "//spcerobocon.github.io/assets/img/team/kp.png",
+    "photo": "/assets/img/team/kp.png",
     "role": "Captain",
     "socials": []
   },
   {
     "name": "Siddharth Dabhane",
-    "photo": "//spcerobocon.github.io/assets/img/team/sd.png",
+    "photo": "/assets/img/team/sd.png",
     "role": "Vice Captain",
     "socials": []
   },
   {
     "name": "Sankalp Nagane",
-    "photo": "//spcerobocon.github.io/assets/img/team/sn.png",
+    "photo": "/assets/img/team/sn.png",
     "role": "Manager",
     "socials": []
   },
   {
     "name": "Mayank Nikumbh",
-    "photo": "//spcerobocon.github.io/assets/img/team/mn.png",
+    "photo": "/assets/img/team/mn.png",
     "role": "Elec Co-Head",
     "socials": []
   },
   {
     "name": "Punit Gharat",
-    "photo": "//spcerobocon.github.io/assets/img/team/pg.png",
+    "photo": "/assets/img/team/pg.png",
     "role": "Elec Co-Head",
     "socials": []
   },
   {
     "name": "Manjeet Sharma",
-    "photo": "//spcerobocon.github.io/assets/img/team/ms.png",
+    "photo": "/assets/img/team/ms.png",
     "role": "Mech Co-Head",
     "socials": []
   },
   {
     "name": "Shawn Massy",
-    "photo": "//spcerobocon.github.io/assets/img/team/sm.png",
+    "photo": "/assets/img/team/sm.png",
     "role": "Mech Co-Head",
     "socials": []
   },
   {
     "name": "Samyak Shelare",
-    "photo": "//spcerobocon.github.io/assets/img/team/ss.png",
+    "photo": "/assets/img/team/ss.png",
     "role": "Coding Lead",
     "socials": []
   },
   {
     "name": "Riddhi",
-    "photo": "//spcerobocon.github.io/assets/img/team/rn.png",
+    "photo": "/assets/img/team/rn.png",
     "role": "Non-Tech",
     "socials": []
   },
   {
     "name": "Prathamesh Kadam",
-    "photo": "//spcerobocon.github.io/assets/img/team/pk.png",
+    "photo": "/assets/img/team/pk.png",
     "role": "Non-Tech",
     "socials": []
   },
   {
     "name": "Vaishnavi Shinde",
-    "photo": "//spcerobocon.github.io/assets/img/team/vs.png",
+    "photo": "/assets/img/team/vs.png",
     "role": "Non-Tech",
     "socials": []
   }
