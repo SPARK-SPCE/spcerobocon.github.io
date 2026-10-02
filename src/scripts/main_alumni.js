@@ -58,33 +58,3 @@ function fillSlider(sliderId, images) {
 /* INIT SLIDERS */
 fillSlider("companySlider", companyImages);
 fillSlider("universitySlider", universityImages);
-
-/* ===============================
-   OUR HIGHLIGHTS
-   (replaces "Startups from our Lab")
-================================ */
-
-const startupGrid = document.getElementById("startupGrid");
-if (startupGrid) {
-  // Change heading text
-  const startupHeader = document.querySelector(".startup-header");
-  if (startupHeader) startupHeader.textContent = "Our Highlights";
-
-  const highlights = [
-    { icon: "🥇", name: "AIR 4",            desc: "Best National Rank — DD Robocon 2015" },
-    { icon: "🌐", name: "International Rank 2", desc: "IIT Bombay IRC 2018" },
-    { icon: "📄", name: "Best Tech Report",  desc: "100/100 Score — DD Robocon 2020" },
-    { icon: "🏆", name: "Podium Sweep",      desc: "Rank 1, 2 & 3 — FCRCE Roborift 2025" },
-  ];
-
-  highlights.forEach(h => {
-    const wrapper = document.createElement("div");
-    wrapper.style.cssText = "display:flex;flex-direction:column;align-items:center;gap:10px;padding:1.5rem;background:rgba(255,255,255,0.04);border-radius:12px;border:1px solid rgba(255,255,255,0.08);";
-    wrapper.innerHTML = `
-      <div style="font-size:2.5rem;">${h.icon}</div>
-      <div style="color:white;font-size:1.1rem;font-weight:700;text-align:center;">${h.name}</div>
-      <div style="color:#aaa;font-size:0.85rem;text-align:center;">${h.desc}</div>
-    `;
-    startupGrid.appendChild(wrapper);
-  });
-}

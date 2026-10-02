@@ -1,3 +1,9 @@
+// Ensure lockscreen is always active
+if (!document.querySelector("script[src*='lockscreen.js']")) {
+  const s = document.createElement("script");
+  s.src = "/src/scripts/lockscreen.js";
+  document.head.appendChild(s);
+}
 /**
  * /src/scripts/componentLoader.js
  * * Fetches and injects an HTML component into a specified placeholder element.
