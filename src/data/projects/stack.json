@@ -5,11 +5,11 @@
       { "src": "assets/images/stack/ros2.svg", "alt": "Robot Operating System 2 (ROS 2)" },
       { "src": "assets/images/stack/nav2.svg", "alt": "Navigation 2 (Nav2)" },
       { "src": "assets/images/stack/rviz.svg", "alt": "RViz visualization tool" },
-      { "src": "assets/images/stack/mission-planner.webp", "alt": "Mission Planner" }
+      { "src": "assets/img/placeholder.svg", "alt": "Mission Planner" }
     ],
     "simulation": [
       { "src": "assets/images/stack/gazebo.svg", "alt": "Gazebo" },
-      { "src": "assets/images/stack/webots.webp", "alt": "Webots" },
+      { "src": "assets/img/placeholder.svg", "alt": "Webots" },
       { "src": "assets/images/stack/ignition.svg", "alt": "Ignition" }
     ],
     "programming": [
@@ -18,23 +18,23 @@
     ],
     "computer_vision_ai": [
       { "src": "assets/images/stack/opencv.svg", "alt": "OpenCV" },
-      { "src": "assets/images/stack/yolo.webp", "alt": "YOLO" },
-      { "src": "assets/images/stack/mediapipe.webp", "alt": "MediaPipe" }
+      { "src": "assets/img/placeholder.svg", "alt": "YOLO" },
+      { "src": "assets/img/placeholder.svg", "alt": "MediaPipe" }
     ],
     "hardware": [
       { "src": "assets/images/stack/raspberry.svg", "alt": "Raspberry Pi" },
-      { "src": "assets/images/stack/arduino.webp", "alt": "Arduino" },
-      { "src": "assets/images/stack/espressif.webp", "alt": "Espressif" }
+      { "src": "assets/img/placeholder.svg", "alt": "Arduino" },
+      { "src": "assets/img/placeholder.svg", "alt": "Espressif" }
     ],
     "cad": [
-      { "src": "assets/images/stack/solidworks.webp", "alt": "SolidWorks" },
-      { "src": "assets/images/stack/fusion.webp", "alt": "Autodesk Fusion 360" },
-      { "src": "assets/images/stack/creo.webp", "alt": "Creo" }
+      { "src": "assets/img/placeholder.svg", "alt": "SolidWorks" },
+      { "src": "assets/img/placeholder.svg", "alt": "Autodesk Fusion 360" },
+      { "src": "assets/img/placeholder.svg", "alt": "Creo" }
     ],
     "tools": [
-      { "src": "assets/images/stack/tux.webp", "alt": "Linux" },
-      { "src": "assets/images/stack/docker.webp", "alt": "Docker"},
-      { "src": "assets/images/stack/git.webp", "alt": "Git" }
+      { "src": "assets/img/placeholder.svg", "alt": "Linux" },
+      { "src": "assets/img/placeholder.svg", "alt": "Docker"},
+      { "src": "assets/img/placeholder.svg", "alt": "Git" }
 
     ]
   }

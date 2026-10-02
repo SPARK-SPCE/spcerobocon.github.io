@@ -1,32 +1,17 @@
 [
-    {
-        "title": "Junior Robotics",
-        "age_range": "6–12",
-        "level": "Beginner",
-        "description": [
-            "Learn the basics of robots through fun, hands-on activities.",
-            "Build simple bots using sensors and block-based coding.",
-            "Develop creativity, logic, and teamwork while having fun."
-        ]
-    },
-    {
-        "title": "Intermediate Robotics",
-        "age_range": "13–18",
-        "level": "Intermediate",
-        "description": [
-            "Dive into Arduino, Raspberry Pi, and real electronics.",
-            "Code robots using Python and C++ for smart control.",
-            "Work on exciting projects in AI, sensors, and automation."
-        ]
-    },
-    {
-        "title": "Advanced Robotics",
-        "age_range": "University Students",
-        "level": "Advanced",
-        "description": [
-            "Master ROS, kinematics, and robotic motion control.",
-            "Learn transformations, simulations, and robot dynamics.",
-            "Build and deploy advanced robotic systems with AI."
-        ]
-    }
+  {
+    "title": "Embedded Systems & Microcontrollers",
+    "description": "Deep-dive into Arduino, ESP32, and Raspberry Pi for real-time robot control, sensor integration, and wireless communication protocols.",
+    "photo": "assets/img/placeholder.svg"
+  },
+  {
+    "title": "Autonomous Navigation Fundamentals",
+    "description": "Path planning, PID tuning, encoder feedback loops, and holonomic drive kinematics \u2014 the core of SPARK's autonomous robot pipeline.",
+    "photo": "assets/img/placeholder.svg"
+  },
+  {
+    "title": "Mechanical Design for Robotics",
+    "description": "Structural analysis, gear systems, motor selection, and CNC/laser cut fabrication techniques used in SPARK's competition builds.",
+    "photo": "assets/img/placeholder.svg"
+  }
 ]

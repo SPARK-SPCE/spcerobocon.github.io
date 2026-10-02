@@ -1,7 +1,7 @@
 [
     {
         "name": "NITHIN THOMAS",
-        "photo": "assets/images/team/founders/NITHIN-THOMAS.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": [
         {
@@ -12,7 +12,7 @@
     },
     {
         "name": "GEORGE V JOSEPH",
-        "photo": "assets/images/team/founders/GEORGE-V-JOSEPH.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": [
         {
@@ -23,7 +23,7 @@
     },
     {
         "name": "ARAVIND E VIJAYAN",
-        "photo": "assets/images/team/founders/ARAVIND-E-VIJAYAN.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": [
         {
@@ -36,7 +36,7 @@
     },
     {
         "name": "JIBIN RAJAN",
-        "photo": "assets/images/team/founders/JIBIN-RAJAN.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": [
         {
@@ -49,7 +49,7 @@
     },
     {
         "name": "HARISH NARAYANASWAMY",
-        "photo": "assets/images/team/founders/harish-n.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": [
         {
@@ -62,19 +62,19 @@
     },
     {
         "name": "RATAN SADANANDAN",
-        "photo": "assets/images/team/founders/RATAN-SADANANDAN.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": []
     },
     {
         "name": "SAFVAN P",
-        "photo": "assets/images/team/founders/Safvan_Palathingal.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": []
     },
     {
         "name": "Hari Prasanth",
-        "photo": "assets/images/team/founders/hari-p.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": [
         {
@@ -85,7 +85,7 @@
     },
     {
         "name": "Ajith Anil Meera",
-        "photo": "assets/images/team/founders/ajith-am.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": [
         {

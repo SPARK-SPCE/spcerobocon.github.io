@@ -1,22 +1,22 @@
 (function () {
     const images = [
-        "assets/images/main/0.webp",
-        "assets/images/main/1.webp",
-        "assets/images/main/2.webp",
-        "assets/images/main/3.webp",
-        "assets/images/main/4.webp",
-        "assets/images/main/5.webp",
-        "assets/images/main/6.webp",
-        "assets/images/main/7.webp",
-        "assets/images/main/8.webp",
-        "assets/images/main/9.webp",
-        "assets/images/main/10.webp",
-        "assets/images/main/11.webp",
-        "assets/images/main/12.webp",
-        // "assets/images/main/13.webp",
-        "assets/images/main/14.webp",
-        "assets/images/main/15.webp",
-        "assets/images/main/16.webp"
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        // "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg",
+        "assets/img/placeholder.svg"
     ];
 
     const imgEl = document.getElementById("slideshow");
