@@ -13,12 +13,16 @@
   <link rel="stylesheet" href="assets/css/global.css" />
   <link rel="stylesheet" href="assets/css/nav.css" />
   <link rel="stylesheet" href="assets/css/index.css" />
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
 </head>
 <body>
 
   <!-- Loading Screen -->
   <div id="loading-screen">
-    <div class="loading-logo">SPARK</div>
+    <div class="loading-logo">
+      <img src="assets/img/favicon.svg" alt="SPCE Robocon Logo" style="height:48px;width:auto;margin-bottom:0.5rem;" />
+      <div>SPARK</div>
+    </div>
     <div class="circuit-loader"><div class="circuit-loader-bar"></div></div>
     <p class="loading-text">INITIALIZING SYSTEMS...</p>
   </div>
@@ -48,8 +52,11 @@
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="SPARK Home">
-        <span class="nav-logo-text">SPARK</span>
-        <span class="nav-logo-sub">SPCE ROBOCON</span>
+        <img src="assets/img/favicon.svg" alt="SPCE Robocon Logo" class="nav-logo-icon" />
+        <div class="nav-logo-text-group">
+          <span class="nav-logo-text">SPARK</span>
+          <span class="nav-logo-sub">SPCE ROBOCON</span>
+        </div>
       </a>
       <div class="nav-links" role="list">
         <a href="index.html"        class="nav-link" role="listitem">Home</a>
@@ -243,6 +250,43 @@
     </div>
   </div>
 
+  <!-- ── DOMAIN FOCUS AREAS ── -->
+  <section class="section" aria-label="Core Engineering Domains">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 600px; margin: 0 auto 1.5rem;">
+        <div class="section-label" style="justify-content: center;">// Technical Core</div>
+        <h2 class="section-title">Core <span class="highlight">Domains</span></h2>
+        <p style="color: var(--text-muted); margin-top: 0.5rem;">Multidisciplinary engineering teams working together to engineer national-grade competition robots.</p>
+      </div>
+
+      <div class="domain-grid">
+        <div class="domain-card" data-ag-fade-up>
+          <div class="domain-icon">🤖</div>
+          <div class="domain-title">Autonomous Navigation</div>
+          <div class="domain-desc">Path planning, ROS 2 integration, LiDAR mapping, and real-time obstacle avoidance algorithms for autonomous playfield navigation.</div>
+        </div>
+
+        <div class="domain-card" data-ag-fade-up data-ag-delay="100">
+          <div class="domain-icon">⚡</div>
+          <div class="domain-title">Embedded Electronics</div>
+          <div class="domain-desc">Custom PCB design, ESP32/STM32 microcontrollers, CAN bus communications, high-power motor drivers, and sensor suites.</div>
+        </div>
+
+        <div class="domain-card" data-ag-fade-up data-ag-delay="200">
+          <div class="domain-icon">⚙️</div>
+          <div class="domain-title">Mechanical CAD &amp; CNC</div>
+          <div class="domain-desc">Precision SolidWorks 3D CAD modeling, structural FEA analysis, CNC aluminum machining, carbon fiber fabrication, and pneumatic systems.</div>
+        </div>
+
+        <div class="domain-card" data-ag-fade-up data-ag-delay="300">
+          <div class="domain-icon">👁️</div>
+          <div class="domain-title">AI &amp; Vision Systems</div>
+          <div class="domain-desc">OpenCV image processing, YOLO object detection, AprilTag tracking, and camera alignment for high-precision autonomous scoring.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── ABOUT SECTION ── -->
   <section class="about-section section" aria-label="About SPARK">
     <div class="container">
@@ -308,7 +352,10 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
-        <div class="footer-logo">SPARK</div>
+        <div class="footer-logo">
+          <img src="assets/img/favicon.svg" alt="SPCE Robocon Logo" class="footer-logo-img" />
+          <span>SPARK</span>
+        </div>
         <div class="footer-tagline">INNOVATE, BUILD, COMPETE</div>
       </div>
       <div class="footer-socials">
