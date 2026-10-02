@@ -1,0 +1,131 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+    branches:
+      - main
+      - dev
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  pull-requests: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install and Build 🏗️
+        if: github.event.action != 'closed'
+        run: |
+          npm install
+          npm run build
+
+      # Dynamic Path Prefixing
+      - name: Prefix absolute paths
+        if: github.event.action != 'closed'
+        run: |
+          REPO="${GITHUB_REPOSITORY##*/}"
+          OWNER="${GITHUB_REPOSITORY%%/*}"
+          
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            # Logic for PR Previews
+            if [ "$OWNER" == "rignitc" ]; then
+              # Root-level domain PRs (rignitc.com/pr-preview/...)
+              BASE_PREFIX="/pr-preview/pr-${{ github.event.number }}"
+            else
+              # Forked repo PRs (user.github.io/repo/pr-preview/...)
+              BASE_PREFIX="/$REPO/pr-preview/pr-${{ github.event.number }}"
+            fi
+          elif [ "$OWNER" == "rignitc" ]; then
+            # Production deployment on main org (rignitc.com/)
+            BASE_PREFIX=""
+          else
+            # Deployment on a fork (user.github.io/repo/)
+            BASE_PREFIX="/$REPO"
+          fi
+          
+          echo "Correcting paths using prefix: $BASE_PREFIX"
+
+          # ---------- HTML Fixes ----------
+          find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s|=\"/assets/|=\"$BASE_PREFIX/assets/|g" \
+              -e "s|=\"/content/|=\"$BASE_PREFIX/content/|g" \
+              -e "s|=\"/blog/|=\"$BASE_PREFIX/blog/|g" \
+              -e "s|=\"/src/|=\"$BASE_PREFIX/src/|g" \
+              -e "s|=\"/\"|=\"$BASE_PREFIX/\"|g" \
+              -e "s|\"/src/components/|\"$BASE_PREFIX/src/components/|g" \
+              -e "s|'/src/components/|'$BASE_PREFIX/src/components/|g" \
+              -e "s|href=\"/about/|href=\"$BASE_PREFIX/about/|g" \
+              -e "s|href=\"/projects/|href=\"$BASE_PREFIX/projects/|g" \
+              -e "s|href=\"/achievements/|href=\"$BASE_PREFIX/achievements/|g" \
+              -e "s|href=\"/activities/|href=\"$BASE_PREFIX/activities/|g" \
+              -e "s|href=\"/team/|href=\"$BASE_PREFIX/team/|g" \
+              -e "s|href=\"/contact/|href=\"$BASE_PREFIX/contact/|g" \
+              -e "s|href=\"/hof/|href=\"$BASE_PREFIX/hof/|g" \
+              -e "s|link: \"/hof/|link: \"$BASE_PREFIX/hof/|g" \
+              -e "s|link: '/hof/|link: '$BASE_PREFIX/hof/|g" \
+              -e "s|href=\"/sitemap.xml|href=\"$BASE_PREFIX/sitemap.xml|g" \
+              -e "s@fetch(\"/src/data/@fetch(\"$BASE_PREFIX/src/data/@g" \
+              -e "s@fetch('/src/data/@fetch('$BASE_PREFIX/src/data/@g" \
+              "$file"
+          done
+
+          # ---------- JS & Component Loader Fixes ----------
+          find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s@fetch(\"/src/data/@fetch(\"$BASE_PREFIX/src/data/@g" \
+              -e "s@fetch('/src/data/@fetch('$BASE_PREFIX/src/data/@g" \
+              -e "s|\"/src/|\"$BASE_PREFIX/src/|g" \
+              -e "s|'/src/|'$BASE_PREFIX/src/|g" \
+              -e "s|\"/assets/|\"$BASE_PREFIX/assets/|g" \
+              -e "s|'/assets/|'$BASE_PREFIX/assets/|g" \
+              -e "s|/content/|$BASE_PREFIX/content/|g" \
+              -e "s|'/blog/|'$BASE_PREFIX/blog/|g" \
+              -e "s|\"/blog/|\"$BASE_PREFIX/blog/|g" \
+              -e "s|\`/blog/|\`$BASE_PREFIX/blog/|g" \
+              "$file"
+          done
+
+          # ---------- CSS Fixes ----------
+          find dist -type f -name "*.css" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s|url(\"/assets/|url(\"$BASE_PREFIX/assets/|g" \
+              -e "s|url('/assets/|url('$BASE_PREFIX/assets/|g" \
+              "$file"
+          done
+
+          # ---------- JSON Data Fixes ----------
+          find dist/src/data -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s|assets/|/$REPO/assets/|g" \
+              -e "s|\"/activities/origo|\"$BASE_PREFIX/activities/origo|g" \
+              "$file"
+          done
+
+      - name: Deploy PR Preview 🚀
+        if: github.event_name == 'pull_request'
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./dist
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+
+      - name: Deploy Production to gh-pages 🌐
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+          clean: false

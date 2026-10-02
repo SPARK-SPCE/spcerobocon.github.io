@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clapperboard Animation</title>
+<style>
+  @font-face {
+    font-family: "Eraser";
+    src: url("https://assets.codepen.io/8841541/eraser.regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  * {
+    font-family: verdana, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    background: linear-gradient(rgba(50, 50, 50, 0.9), rgba(50, 50, 50, 0.5)),
+      url("https://assets.codepen.io/8841541/set.jpeg");
+    background-size: cover;
+    height: 100%;
+  }
+
+  .text {
+    color: #f1f1f1;
+    text-transform: uppercase;
+    font-style: italic;
+    display: inline;
+  }
+
+  .text--padded {
+    padding-left: 4px;
+    padding-top: 2px;
+  }
+
+  .outercontainer {
+    width: 100%;
+    height: 100vh;
+    padding-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hinge {
+    clip-path: polygon(0% 0%, 47% 0%, 100% 100%, 0% 100%);
+    height: 100px;
+    width: 100px;
+    border: 0.1rem solid grey;
+    z-index: 2;
+    position: relative;
+    background-color: #010101;
+    left: 0;
+    top: 100px;
+    border-radius: 10px;
+  }
+
+  .hinge__rivet {
+    display: block;
+    font-size: 0.6rem;
+    margin: 0;
+  }
+
+  .hinge__rivet--top {
+    position: relative;
+    left: 10px;
+    top: 10px;
+  }
+
+  .hinge__rivet--bottomleft {
+    position: relative;
+    left: 10px;
+    top: 50px;
+  }
+
+  .hinge__rivet--bottomright {
+    position: relative;
+    left: 60px;
+    top: 33px;
+  }
+
+  .container {
+    width: 500px;
+    height: 500px;
+    background-color: #000000;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .clappercontainer {
+    width: 500px;
+    height: 100%;
+  }
+
+  .clapper__top {
+    width: 100%;
+    height: 50px;
+    background-color: #151515;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+    overflow: hidden;
+    border-radius: 10px 0 0 0;
+  }
+
+  .clapper__top--white {
+    width: 15%;
+    height: 100%;
+    background-color: #f1f1f1;
+    transform: skew(20deg);
+  }
+
+  .clapper__top--white:first-child {
+    visibility: hidden;
+  }
+
+  .clapper__bottom {
+    width: 100%;
+    height: 50px;
+    background-color: #151515;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .clapper__bottom--white {
+    width: 15%;
+    height: 100%;
+    background-color: #f1f1f1;
+    transform: skew(-20deg);
+  }
+
+  .info-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scene-take-roll {
+    width: 95%;
+    height: 25%;
+    display: flex;
+    justify-content: space-around;
+    border-top: 4px solid #f1f1f1;
+    border-bottom: 4px solid #f1f1f1;
+  }
+
+  .scene, .take, .roll {
+    width: 33%;
+    height: 100%;
+    background: #151515;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+  }
+
+  .scene__text, .take__text, .roll__text {
+    font-family: "Eraser";
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  .scene, .take {
+    border-right: 4px solid #f1f1f1;
+  }
+
+  .date-prod-sound {
+    width: 95%;
+    height: 25%;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 4px solid #f1f1f1;
+  }
+
+  .date-prod {
+    width: 60%;
+    height: 100%;
+  }
+
+  .date, .prod {
+    background: #151515;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    border-right: 4px solid #f1f1f1;
+  }
+
+  .date {
+    border-bottom: 4px solid #f1f1f1;
+  }
+
+  .sound {
+    background: #151515;
+    width: 40%;
+  }
+
+  .director {
+    width: 95%;
+    height: 15%;
+    border-bottom: 4px solid #f1f1f1;
+    background: #151515;
+  }
+
+  .cinematographer {
+    width: 95%;
+    height: 15%;
+    border-bottom: 4px solid #f1f1f1;
+    background: #151515;
+  }
+
+  @keyframes rotateUp {
+    0% { transform: rotate(0deg); }
+    96% { transform: rotate(-35deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  .rotateUp {
+    transform-origin: left center;
+    animation: rotateUp 4s infinite;
+  }
+</style>
+</head>
+<body>
+
+<div class="outercontainer">
+  <div class="clappercontainer">
+    <div class="hinge">
+      <p class="hinge__rivet hinge__rivet--top">⚪️</p>
+      <p class="hinge__rivet hinge__rivet--bottomleft">⚪️</p>
+      <p class="hinge__rivet hinge__rivet--bottomright">⚪️</p>
+    </div>
+    <div class="clapper__top rotateUp">
+      <div class="clapper__top--white"></div>
+      <div class="clapper__top--white"></div>
+      <div class="clapper__top--white"></div>
+      <div class="clapper__top--white"></div>
+      <div class="clapper__top--white"></div>
+    </div>
+
+    <div class="container">
+      <div class="clapper__bottom">
+        <div class="clapper__bottom--white"></div>
+        <div class="clapper__bottom--white"></div>
+        <div class="clapper__bottom--white"></div>
+        <div class="clapper__bottom--white"></div>
+        <div class="clapper__bottom--white"></div>
+      </div>
+
+      <div class="info-container">
+        <div class="scene-take-roll">
+          <div class="scene">
+            <p class="text">Scene:</p>
+            <p class="scene__text"></p>
+          </div>
+          <div class="take">
+            <p class="text">Take:</p>
+            <p class="take__text"></p>
+          </div>
+          <div class="roll">
+            <p class="text">Roll:</p>
+            <p class="roll__text"></p>
+          </div>
+        </div>
+
+        <div class="date-prod-sound">
+          <div class="date-prod">
+            <div class="date">
+              <p class="text text--padded">Date:</p>
+              <p class="date__text"></p>
+            </div>
+            <div class="prod">
+              <p class="text text--padded">Prod.</p>
+            </div>
+          </div>
+          <div class="sound">
+            <p class="text text--padded">Sound:</p>
+          </div>
+        </div>
+
+        <div class="director">
+          <p class="text text--padded">Director:</p>
+        </div>
+        <div class="cinematographer">
+          <p class="text text--padded">Cinematographer:</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

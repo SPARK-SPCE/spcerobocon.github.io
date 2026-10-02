@@ -1,428 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SPCE ROBOCON</title>
-  <meta name="description" content="SPARK — Sardar Patel Automation & Robotics K'lub. Robotics club of SPCE Mumbai. National-level competitors since 2011." />
-  <meta property="og:title" content="SPCE ROBOCON" />
-  <meta property="og:description" content="SPARK — Sardar Patel Automation & Robotics K'lub. Robotics club of SPCE Mumbai. National-level competitors since 2011." />
-  <meta property="og:url" content="https://spcerobocon.tech" />
-  <meta property="og:type" content="website" />
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
-  <link rel="stylesheet" href="assets/css/global.css" />
-  <link rel="stylesheet" href="assets/css/nav.css" />
-  <link rel="stylesheet" href="assets/css/index.css" />
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
-</head>
-<body>
+  <head>
+    <meta
+      name="google-site-verification"
+      content="egNQUefR6KkaBjS5mn4bl_yncx1GNncswQOhK4S36cI"
+    />
 
-  <!-- Loading Screen -->
-  <div id="loading-screen">
-    <div class="loading-logo">
-      <img src="assets/img/favicon.svg" alt="SPCE Robocon Logo" style="height:48px;width:auto;margin-bottom:0.5rem;" />
-      <div>SPARK</div>
-    </div>
-    <div class="circuit-loader"><div class="circuit-loader-bar"></div></div>
-    <p class="loading-text">INITIALIZING SYSTEMS...</p>
-  </div>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JJEWZN4WSN"
+    ></script>
 
-  <!-- Scroll Progress Bar -->
-  <div id="scroll-progress"></div>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-JJEWZN4WSN");
+    </script>
 
-  <!-- Cursor -->
-  <div id="cursor-dot"></div>
-  <div id="cursor-ring"></div>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-  <!-- Star Field -->
-  <div class="star-field" aria-hidden="true">
-    <div class="stars-layer stars-small"></div>
-    <div class="stars-layer stars-medium"></div>
-    <div class="stars-layer stars-large"></div>
-  </div>
+    <title>SPARK | SPCE Robocon</title>
 
-  <!-- Circuit Texture + Scanlines -->
-  <div class="circuit-texture" aria-hidden="true"></div>
-  <div class="scanlines" aria-hidden="true"></div>
+    <meta
+      name="description"
+      content="The official website for SPARK (SPCE Robocon at NIT Calicut). Explore our cutting-edge robotics projects, research, technical workshops, and alumni network in Mechatronics and Automation."
+    />
 
-  <!-- Easter Egg Robot -->
-  <div id="spark-easter-egg" aria-hidden="true">🤖</div>
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"
+    ></script>
 
-  <!-- ── Navigation ── -->
-  <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="SPARK Home">
-        <img src="assets/img/favicon.svg" alt="SPCE Robocon Logo" class="nav-logo-icon" />
-        <div class="nav-logo-text-group">
-          <span class="nav-logo-text">SPARK</span>
-          <span class="nav-logo-sub">SPCE ROBOCON</span>
-        </div>
-      </a>
-      <div class="nav-links" role="list">
-        <a href="index.html"        class="nav-link" role="listitem">Home</a>
-        <a href="projects.html"     class="nav-link" role="listitem">Projects</a>
-        <a href="achievements.html" class="nav-link" role="listitem">Achievements</a>
-        <a href="team.html"         class="nav-link" role="listitem">Team</a>
-        <a href="history.html"      class="nav-link" role="listitem">History</a>
-        <a href="crowdfund.html"    class="nav-link nav-link-cta" role="listitem">Support Us</a>
-        <a href="join.html"         class="nav-link" role="listitem">Join</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Existing Google Fonts (UNCHANGED) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome (UNCHANGED) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="assets/images/logog.webp" />
+
+    <!-- Existing Stylesheets (UNCHANGED) -->
+    <link rel="stylesheet" href="/src/styles/navbar.css" />
+    <link rel="stylesheet" href="/src/styles/footer.css" />
+    <link rel="stylesheet" href="/src/styles/cursor.css" />
+
+    <link rel="stylesheet" href="/src/styles/main_gallery.css" />
+    <link rel="stylesheet" href="/src/styles/main_body.css" />
+    <link rel="stylesheet" href="/src/styles/main_alumni.css" />
+    <link rel="stylesheet" href="/src/styles/main_projects.css" />
+    <link rel="stylesheet" href="/src/styles/main_about.css" />
+    <link rel="stylesheet" href="/src/styles/main_hero.css" />
+  </head>
+
+  <div id="navbar-placeholder"></div>
+
+  <body>
+    <main>
+    <div
+      class="hero"
+      style="
+        position: relative;
+        background: black;
+        color: white;
+        overflow: hidden;
+      "
+    >
+      <img
+        id="labImage"
+        src="assets/images/lab-ol-h1.webp"
+        alt="lab background"
+        class="lab-bg"
+        style="
+          position: absolute;
+          top: 55%;
+          left: 33%;
+          width: 60%;
+          height: 100%;
+          object-fit: contain;
+          transform: translate(-50%, -60%);
+          filter: invert(1) contrast(1) brightness(1);
+          mix-blend-mode: screen;
+          opacity: 0.6;
+          z-index: 0;
+        "
+      />
+
+      <div
+        class="text-block"
+        style="
+          position: relative;
+          z-index: 1;
+          margin-top: 40px;
+          transform: translateY(80px);
+        "
+      >
+        <div class="title">SPARK</div>
+
+        <span class="subtitle"> SPCE Robocon </span>
       </div>
-      <div class="nav-hud-indicator">
-        <div class="nav-hud-dot"></div>
-        <span>ONLINE</span>
-      </div>
-      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <!-- Mobile Menu -->
-    <div class="nav-mobile" role="menu">
-      <a href="index.html"        class="nav-link" role="menuitem">Home</a>
-      <a href="projects.html"     class="nav-link" role="menuitem">Projects</a>
-      <a href="achievements.html" class="nav-link" role="menuitem">Achievements</a>
-      <a href="team.html"         class="nav-link" role="menuitem">Team</a>
-      <a href="history.html"      class="nav-link" role="menuitem">History</a>
-      <a href="crowdfund.html"    class="nav-link" role="menuitem">Support Us</a>
-      <a href="join.html"         class="nav-link" role="menuitem">Join</a>
-    </div>
-  </nav>
-
-  <!-- ── HERO SECTION ── -->
-  <section class="hero" aria-label="Hero">
-    <!-- Decorative floating gears -->
-    <div class="hero-bg" aria-hidden="true">
-      <!-- Gear 1 -->
-      <svg class="hero-gear hero-gear-1" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 15a5 5 0 0 1 5 5v5a25 25 0 0 1 17.68 7.32l4.33-2.5a5 5 0 0 1 6.83 1.83l0 0a5 5 0 0 1-1.83 6.83l-4.33 2.5A25 25 0 0 1 80 75v5a5 5 0 0 1-5 5H75a5 5 0 0 1-5-5V75a25 25 0 0 1-17.68-7.32l-4.33 2.5A5 5 0 0 1 41.17 68.35l0 0a5 5 0 0 1 1.83-6.83l4.33-2.5A25 25 0 0 1 45 25V20a5 5 0 0 1 5-5z" fill="#00F5FF"/>
-        <circle cx="50" cy="50" r="12" stroke="#00F5FF" stroke-width="2" fill="none"/>
-        <circle cx="50" cy="50" r="4" fill="#00F5FF"/>
-      </svg>
-      <!-- Gear 2 -->
-      <svg class="hero-gear hero-gear-2" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 20a30 30 0 1 1 0 60 30 30 0 0 1 0-60zm0 10a20 20 0 1 0 0 40 20 20 0 0 0 0-40z" fill="#FF6B00"/>
-        <path d="M46 10h8v10h-8zM46 80h8v10h-8zM10 46v8h10v-8zM80 46v8h10v-8z" fill="#FF6B00"/>
-        <circle cx="50" cy="50" r="6" fill="#FF6B00"/>
-      </svg>
-      <!-- Gear 3 -->
-      <svg class="hero-gear hero-gear-3" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="30" cy="30" r="20" stroke="#00F5FF" stroke-width="1.5" fill="none"/>
-        <circle cx="30" cy="30" r="10" stroke="#00F5FF" stroke-width="1" fill="none"/>
-        <circle cx="30" cy="30" r="3" fill="#00F5FF"/>
-        <line x1="30" y1="5" x2="30" y2="10" stroke="#00F5FF" stroke-width="3"/>
-        <line x1="30" y1="50" x2="30" y2="55" stroke="#00F5FF" stroke-width="3"/>
-        <line x1="5" y1="30" x2="10" y2="30" stroke="#00F5FF" stroke-width="3"/>
-        <line x1="50" y1="30" x2="55" y2="30" stroke="#00F5FF" stroke-width="3"/>
-      </svg>
-      <!-- Circuit nodes -->
-      <svg class="hero-circuit-node circuit-node-1" width="200" height="200" viewBox="0 0 200 200" fill="none">
-        <path d="M20 100 h60 v-40 h60 v40 h40" stroke="#00F5FF" stroke-width="1" opacity="0.6"/>
-        <circle cx="80" cy="60" r="3" fill="#00F5FF"/>
-        <circle cx="140" cy="100" r="3" fill="#FF6B00"/>
-        <path d="M100 140 v-30 h30" stroke="#00F5FF" stroke-width="1" opacity="0.4"/>
-        <circle cx="130" cy="110" r="2" fill="#00F5FF"/>
-      </svg>
-      <svg class="hero-circuit-node circuit-node-2" width="150" height="150" viewBox="0 0 150 150" fill="none">
-        <path d="M10 75 h40 v-25 h30 v50 h30" stroke="#FF6B00" stroke-width="1" opacity="0.5"/>
-        <circle cx="50" cy="50" r="3" fill="#FF6B00"/>
-        <circle cx="80" cy="100" r="2" fill="#00F5FF"/>
-      </svg>
+      <img
+        id="slideshow"
+        alt="slideshow"
+        style="position: relative; z-index: 1"
+      />
     </div>
 
-    <!-- HUD Overlay -->
-    <div class="hud-overlay" aria-hidden="true">
-      <div class="hud-top-left">
-        <div id="hud-time" class="coord-readout">SYS: LOADING...</div>
-        <div class="coord-readout">NODE: SPCE-MNB-01</div>
-        <div class="coord-readout">STATUS: ONLINE ████████░░ 82%</div>
-      </div>
-      <div class="hud-top-right">
-        <div class="coord-readout">19.1334° N, 72.8382° E</div>
-        <div class="coord-readout">MUMBAI, MAHARASHTRA</div>
-        <div id="coord-readout" class="coord-readout">LAT: 00.00° | LON: 00.00°</div>
-      </div>
-      <div class="hud-bottom-left">
-        <div class="status-bar">
-          POWER <div class="status-bar-track"><div class="status-bar-fill" style="width:94%"></div></div> 94%
-        </div>
-        <div class="status-bar">
-          SIGNAL <div class="status-bar-track"><div class="status-bar-fill" style="width:78%;background:var(--accent-orange);box-shadow:0 0 6px var(--accent-orange)"></div></div> 78%
-        </div>
-        <div class="status-bar">
-          UPTIME <div class="status-bar-track"><div class="status-bar-fill" style="width:100%"></div></div> 14Y
-        </div>
-      </div>
-    </div>
+    <script>
+      const pics = [
+        "assets/images/lab-ol-h1.webp",
+        "assets/images/lab-ol-h2.webp"
+      ];
 
-    <!-- Grid BG -->
-    <div class="grid-bg" aria-hidden="true"></div>
+      let index = 0;
+      const img = document.getElementById("labImage");
 
-    <!-- Hero Content -->
-    <div class="hero-content">
-      <div class="hero-label">// SYSTEM ACTIVE — SPARK ONLINE</div>
+      setInterval(() => {
+        index = (index + 1) % pics.length;
+        img.src = pics[index];
+      }, 1000);
+    </script>
 
-      <h1 class="hero-title">
-        <span class="glitch" data-text="SPCE ROBOCON">SPCE ROBOCON</span>
-      </h1>
 
-      <p class="hero-sub-brand">
-        <span>S.P.A.R.K.</span> — Sardar Patel Automation &amp; Robotics K'lub
-      </p>
-
-      <div class="hero-tagline" id="hero-tagline" aria-live="polite">
-        <span class="typewriter-cursor"></span>
-      </div>
-
-      <p class="hero-blurb">
-        A student-driven technical organization dedicated to developing industry-ready
-        engineers through hands-on robotics innovation and national-level competitions.
-        Founded in 2011 at Sardar Patel College of Engineering, Mumbai.
-      </p>
-
-      <div class="hero-ctas">
-        <a href="projects.html" class="btn btn-primary" data-ag-magnetic>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          View Projects
-        </a>
-        <a href="crowdfund.html" class="btn btn-secondary" data-ag-magnetic>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          Support Us
-        </a>
-      </div>
-    </div>
-
-    <!-- Scroll Hint -->
-    <div class="scroll-hint" aria-hidden="true">
-      <span>SCROLL</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </section>
-
-  <!-- ── STAT COUNTERS ── -->
-  <section class="stats-section" aria-label="Statistics">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item" data-ag-fade-up>
-          <span class="stat-number" data-countup="25" data-suffix="+">25+</span>
-          <span class="stat-label">Core Members</span>
-        </div>
-        <div class="stat-item" data-ag-fade-up data-ag-delay="100">
-          <span class="stat-number" data-countup="14" data-suffix="+">14+</span>
-          <span class="stat-label">Years Active</span>
-        </div>
-        <div class="stat-item" data-ag-fade-up data-ag-delay="200">
-          <span class="stat-number" data-countup="6" data-suffix="+">6+</span>
-          <span class="stat-label">National Rankings</span>
-        </div>
-        <div class="stat-item" data-ag-fade-up data-ag-delay="300">
-          <span class="stat-number" data-countup="100" data-suffix="+">100+</span>
-          <span class="stat-label">Students Mentored</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FOCUS AREAS TICKER ── -->
-  <div class="ticker-section" aria-label="Focus areas">
-    <div class="ticker-fade-left"></div>
-    <div class="ticker-fade-right"></div>
-    <div class="marquee-wrapper">
-      <div class="marquee-track">
-        <span class="marquee-item">Autonomous Robots</span>
-        <span class="marquee-item">Smart IoT Devices</span>
-        <span class="marquee-item">Industrial Automation</span>
-        <span class="marquee-item">AI-driven Vision Systems</span>
-        <span class="marquee-item">CAD &amp; 3D Printing</span>
-        <span class="marquee-item">PCB Design</span>
-        <span class="marquee-item">CNC Machining</span>
-        <span class="marquee-item">Control Systems</span>
-        <span class="marquee-item">Embedded Electronics</span>
-        <!-- Duplicate for seamless loop -->
-        <span class="marquee-item">Autonomous Robots</span>
-        <span class="marquee-item">Smart IoT Devices</span>
-        <span class="marquee-item">Industrial Automation</span>
-        <span class="marquee-item">AI-driven Vision Systems</span>
-        <span class="marquee-item">CAD &amp; 3D Printing</span>
-        <span class="marquee-item">PCB Design</span>
-        <span class="marquee-item">CNC Machining</span>
-        <span class="marquee-item">Control Systems</span>
-        <span class="marquee-item">Embedded Electronics</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── DOMAIN FOCUS AREAS ── -->
-  <section class="section" aria-label="Core Engineering Domains">
-    <div class="container">
-      <div class="section-header text-center" style="max-width: 600px; margin: 0 auto 1.5rem;">
-        <div class="section-label" style="justify-content: center;">// Technical Core</div>
-        <h2 class="section-title">Core <span class="highlight">Domains</span></h2>
-        <p style="color: var(--text-muted); margin-top: 0.5rem;">Multidisciplinary engineering teams working together to engineer national-grade competition robots.</p>
-      </div>
-
-      <div class="domain-grid">
-        <div class="domain-card" data-ag-fade-up>
-          <div class="domain-icon">🤖</div>
-          <div class="domain-title">Autonomous Navigation</div>
-          <div class="domain-desc">Path planning, ROS 2 integration, LiDAR mapping, and real-time obstacle avoidance algorithms for autonomous playfield navigation.</div>
-        </div>
-
-        <div class="domain-card" data-ag-fade-up data-ag-delay="100">
-          <div class="domain-icon">⚡</div>
-          <div class="domain-title">Embedded Electronics</div>
-          <div class="domain-desc">Custom PCB design, ESP32/STM32 microcontrollers, CAN bus communications, high-power motor drivers, and sensor suites.</div>
-        </div>
-
-        <div class="domain-card" data-ag-fade-up data-ag-delay="200">
-          <div class="domain-icon">⚙️</div>
-          <div class="domain-title">Mechanical CAD &amp; CNC</div>
-          <div class="domain-desc">Precision SolidWorks 3D CAD modeling, structural FEA analysis, CNC aluminum machining, carbon fiber fabrication, and pneumatic systems.</div>
-        </div>
-
-        <div class="domain-card" data-ag-fade-up data-ag-delay="300">
-          <div class="domain-icon">👁️</div>
-          <div class="domain-title">AI &amp; Vision Systems</div>
-          <div class="domain-desc">OpenCV image processing, YOLO object detection, AprilTag tracking, and camera alignment for high-precision autonomous scoring.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ABOUT SECTION ── -->
-  <section class="about-section section" aria-label="About SPARK">
-    <div class="container">
-      <div class="about-grid">
-        <!-- Terminal -->
-        <div class="about-terminal glass-card" data-ag-slide-left>
-          <div class="terminal-titlebar">
-            <span class="terminal-dot red"></span>
-            <span class="terminal-dot yellow"></span>
-            <span class="terminal-dot green"></span>
-            <span class="terminal-title">spark@spce:~$ about</span>
-          </div>
-          <div class="terminal-body">
-            <div><span class="prompt">$ </span><span class="text-cyan">cat about.txt</span></div>
-            <div class="comment"># SYSTEM BOOT LOG — SPARK INIT</div>
-            <div class="output">Founded: 2011</div>
-            <div class="output">Institute: SPCE, Mumbai</div>
-            <div class="output">Domain: Robotics &amp; Automation</div>
-            <div class="output">Competition: DD Robocon (National)</div>
-            <div class="output">Best Rank: AIR 4 (2015)</div>
-            <div class="output">Current: ABU Robocon 2026</div>
-            <div>&nbsp;</div>
-            <div><span class="prompt">$ </span><span class="text-cyan">cat motto.txt</span></div>
-            <div class="output text-cyan">INNOVATE. BUILD. COMPETE.</div>
-            <div>&nbsp;</div>
-            <div><span class="prompt">$ </span><span class="text-green">█</span></div>
-          </div>
-        </div>
-
-        <!-- About text -->
-        <div class="about-text-block" data-ag-slide-right>
-          <div class="section-label">About SPARK</div>
-          <h2 class="section-title" style="margin-bottom:1.5rem;">
-            Engineering the <span class="highlight">Future</span><br/>of Robotics
-          </h2>
+    <section id="about">
+      <div class="about-container">
+        <div class="about-text">
+          <h1>Who Are We?</h1>
           <p>
-            SPARK is more than a robotics club — it's a launchpad for the next generation
-            of engineers. We participate in DD Robocon, India's most prestigious robotics
-            competition, where the winning team earns the right to represent India at the
-            ABU Asia Pacific Robotics Competition.
+            The SPCE Robocon (RIG) was founded out of a passion for
+            robotics, aiming to foster learning and research in areas like
+            Mechatronics, Intelligent Systems, and Automation. We focus on
+            gaining hands-on experience and knowledge to keep pace with evolving
+            technologies, support industry innovation, and contribute to
+            developing practical, commercially viable solutions.
           </p>
+
           <p>
-            From circuit boards to autonomous systems, from CAD drawings to CNC machined
-            parts — every skill matters. Our team combines mechanical excellence, electrical
-            precision, and intelligent software to build robots that compete at the national level.
+            Join us to explore the world of robotics, collaborate on exciting
+            projects, and push the boundaries of technology.
           </p>
-          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
-            <span class="tag tag-cyan">Mechanical Design</span>
-            <span class="tag tag-orange">Electronics</span>
-            <span class="tag tag-gold">CAD / CAM</span>
-            <span class="tag tag-green">Coding & AI</span>
-            <span class="tag tag-purple">Management</span>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-number" data-target="30">0</div>
+              <div class="stat-label">Technical Workshops</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number" data-target="15">0</div>
+              <div class="stat-label">Research Publications</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number" data-target="5">0</div>
+              <div class="stat-label">Industry Grade Projects</div>
+            </div>
           </div>
-          <a href="team.html" class="btn btn-primary" style="margin-top:2rem;" data-ag-magnetic>
-            Meet the Team →
-          </a>
+
+          <a href="/about/" class="about-link"
+            >Know More<span>↗</span></a
+          >
+        </div>
+
+        <div class="about-image">
+          <div class="card-wrap" id="cardWrap">
+            <div class="card-shadow" id="cardShadow"></div>
+            <div class="card" id="card">
+              <div class="card-overlay">
+                <h2>SPARK</h2>
+                <p>B21s B22s @ORIGO23</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <script src="/src/scripts/main_about.js"></script>
+    </section>
+
+<!-- In your homepage's featured projects section -->
+<section id="projects">
+  <div class="projects-container">
+    <h1 class="projects-header">Featured Projects</h1>
+    
+    <div class="projects-grid">
+      <!-- This will be populated by JavaScript -->
+      <!-- Fallback content for SEO and no-JS users -->
+      <noscript>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/assets/images/projects/riggu-realH.webp" alt="RIGGU Robot" class="default-img" />
+          </div>
+          <div class="project-content">
+            <h2><strong>RIGGU</strong></h2>
+            <p>Semi Humanoid Robot designed for interactive robotics demonstrations.</p>
+            <a href="/projects/#riggu" class="project-link">View Project ↗</a>
+          </div>
+        </div>
+      </noscript>
     </div>
+
+        <div class="view-all">
+          <a href="/projects/">View All Projects ↗</a>
+        </div>
+      </div>
+      <script src="/src/scripts/main_projects.js"></script>
+    </section>
+
+  <section id="people">
+    <div class="people-header">We Have Alumni in</div>
+
+    <div class="slider-wrapper">
+      <div class="company-slider" id="companySlider"></div>
+    </div>
+
+    <div class="slider-wrapper">
+      <div class="company-slider" id="universitySlider"></div>
+    </div>
+
+    <div class="startup-header">Startups from our Lab</div>
+    <div class="startup-grid" id="startupGrid"></div>
+
+    <script src="/src/scripts/main_alumni.js"></script>
   </section>
 
 
-  <!-- ── ALUMNI & SPONSOR BANNER ── -->
-  <section class="section" style="background: linear-gradient(135deg, rgba(0,245,255,0.03), rgba(255,107,0,0.03)); border-top: 1px solid var(--border-cyan); border-bottom: 1px solid var(--border-cyan);" aria-label="Alumni and Sponsors">
-    <div class="container">
-      <div style="text-align:center; margin-bottom: 2.5rem;">
-        <div class="section-label" style="justify-content: center;">Alumni & Industry</div>
-        <h2 class="section-title">Built by <span class="highlight">Engineers</span>, Trusted by Industry</h2>
-        <p style="color: var(--text-muted); margin-top: 0.75rem; max-width: 500px; margin-left: auto; margin-right: auto;">
-          SPARK alumni now work at top companies. Our sponsors and partners trust us to build the next generation of engineers.
-        </p>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem;">
-        <div class="glass-card" style="padding: 1.5rem; text-align: center;" data-ag-fade-up>
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏗️</div>
-          <div style="font-family: var(--font-heading); font-size: 0.9rem; color: var(--accent-cyan); letter-spacing: 0.1em;">SolidWorks</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">3D CAD Partner</div>
-        </div>
-        <div class="glass-card" style="padding: 1.5rem; text-align: center;" data-ag-fade-up data-ag-delay="100">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">📐</div>
-          <div style="font-family: var(--font-heading); font-size: 0.9rem; color: var(--accent-orange); letter-spacing: 0.1em;">MathWorks</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">MATLAB / Simulink</div>
-        </div>
-        <div class="glass-card" style="padding: 1.5rem; text-align: center;" data-ag-fade-up data-ag-delay="200">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔬</div>
-          <div style="font-family: var(--font-heading); font-size: 0.9rem; color: var(--accent-gold); letter-spacing: 0.1em;">ANSYS</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">Simulation & FEA</div>
-        </div>
-        <div class="glass-card" style="padding: 1.5rem; text-align: center;" data-ag-fade-up data-ag-delay="300">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
-          <div style="font-family: var(--font-heading); font-size: 0.9rem; color: var(--accent-purple); letter-spacing: 0.1em;">Altium</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">PCB Design</div>
-        </div>
-        <div class="glass-card" style="padding: 1.5rem; text-align: center;" data-ag-fade-up data-ag-delay="400">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤝</div>
-          <div style="font-family: var(--font-heading); font-size: 0.9rem; color: var(--accent-green); letter-spacing: 0.1em;">SPCE Mumbai</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">Home Institution</div>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 2.5rem;">
-        <a href="crowdfund.html" class="btn btn-secondary">Become a Sponsor →</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- ── FOOTER ── -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-logo">
-          <img src="assets/img/favicon.svg" alt="SPCE Robocon Logo" class="footer-logo-img" />
-          <span>SPARK</span>
-        </div>
-        <div class="footer-tagline">INNOVATE, BUILD, COMPETE</div>
-      </div>
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/spcerobocon_/" class="footer-social-link" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          @spcerobocon_
-        </a>
-        <a href="https://linkedin.com/company/spce-robocon" class="footer-social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          SPCE ROBOCON
-        </a>
-      </div>
-      <div class="footer-copy">
-        © 2025 SPARK — SPCE ROBOCON<br/>
-        Sardar Patel College of Engineering, Mumbai
-      </div>
-    </div>
-  </footer>
+    <section id="gallery">
+      <h1>Gallery</h1>
+      <div class="polaroid-stage" id="polaroidStage"></div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.antigravity.dev/ag.js"></script>
-  <script src="assets/js/nav.js"></script>
-  <script src="assets/js/cursor.js"></script>
-  <script src="assets/js/index.js"></script>
-</body>
+      <div class="gallery-controls">
+        <button id="shuffle" title="Shuffle">
+          <i class="fas fa-random"></i>
+        </button>
+        <button id="spread" title="Spread">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </button>
+        <button id="gather" title="Gather">
+          <i class="fas fa-compress-arrows-alt"></i>
+        </button>
+        <button id="arrange" title="Arrange"><i class="fas fa-th"></i></button>
+        <button id="help" title="Help"><i class="fas fa-question"></i></button>
+      </div>
+
+      <div class="lightbox" id="lightbox">
+        <img src="" alt="Expanded view" />
+      </div>
+      <script src="/src/scripts/main_gallery.js"></script>
+    </section>
+    </main> <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+    <script src="/src/scripts/main_slideshow.js"></script>
+    <script src="/src/scripts/cursor.js"></script>
+    <script src="/src/scripts/mobile-navbar.js"></script>
+    <script src="/src/scripts/componentLoader.js"></script>
+
+    <script>
+      loadComponent("navbar-placeholder", "/src/components/navbar.html");
+      loadComponent("footer-placeholder", "/src/components/footer.html");
+    </script>
+  </body>
 </html>

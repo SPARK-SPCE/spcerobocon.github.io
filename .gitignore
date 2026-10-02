@@ -1,14 +1,4 @@
-# OS
-.DS_Store
-Thumbs.db
-
-# Editor
+__pycache__/
 .vscode/
-*.swp
-*.swo
-
-# Logs
-*.log
-
-# Temp
-/tmp/
+node_modules
+dist

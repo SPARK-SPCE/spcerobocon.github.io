@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scattered Polaroids Gallery — Single File</title>
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card-bg: #fff;
+      --accent: #ef4444;
+      --shadow: 0 10px 30px rgba(2,6,23,0.6);
+      --polaroid-w: 220px;
+      --polaroid-h: 260px;
+      --frame: 18px; /* bottom frame thickness */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(74,222,128,0.06), transparent), var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow:hidden;
+    }
+
+    /* top controls */
+    header.controls{
+      position:fixed; left:18px; right:18px; top:18px; display:flex; align-items:center; justify-content:space-between; gap:12px; z-index:2000;
+      pointer-events:auto;
+    }
+    .controls .left{display:flex; gap:8px; align-items:center}
+    .btn{background:rgba(255,255,255,0.06); color:var(--card-bg); border:1px solid rgba(255,255,255,0.06); padding:8px 12px; border-radius:10px; cursor:pointer; backdrop-filter: blur(6px); font-weight:600}
+    .btn:active{transform:translateY(1px)}
+    .small{padding:6px 10px; font-size:14px}
+    .muted{opacity:0.7; font-weight:500}
+
+    /* container where polaroids scatter */
+    #stage{
+      position:absolute; inset:0; overflow:hidden; touch-action:none; user-select:none;
+    }
+
+    .polaroid{
+      --w: var(--polaroid-w);
+      --h: var(--polaroid-h);
+      position:absolute; width:var(--w); height:var(--h); background:var(--card-bg);
+      border-radius:6px; box-shadow: var(--shadow); display:flex; flex-direction:column; align-items:center; justify-content:flex-start; transition:transform 260ms cubic-bezier(.2,.9,.25,1), box-shadow 260ms; cursor:grab;
+      transform-origin:center center;
+      border: 1px solid rgba(0,0,0,0.06);
+      overflow:visible;
+    }
+    .polaroid:active{cursor:grabbing}
+    .polaroid .photo{
+      width: calc(100% - 22px); height: calc(100% - var(--frame) - 22px); margin:11px 11px 0; object-fit:cover; border-radius:4px; display:block; box-shadow:0 6px 18px rgba(2,6,23,0.12);
+    }
+    .polaroid .caption{
+      width:100%; text-align:center; padding:8px 6px; font-size:13px; color:#222; margin-top:auto; background:transparent; font-weight:600;
+    }
+
+    /* little pin decoration */
+    .pin{position:absolute; top:-6px; left:6px; width:18px; height:18px; border-radius:50%; background:var(--accent); box-shadow:0 6px 12px rgba(0,0,0,0.3); transform:rotate(-20deg);}
+
+    /* hover effects */
+    .polaroid:hover{transform:translateY(-10px) scale(1.03) rotate(0deg); box-shadow: 0 35px 70px rgba(2,6,23,0.6)}
+
+    /* lightbox */
+    .lightbox{
+      position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(2,6,23,0.84), rgba(2,6,23,0.94)); z-index:4000;
+    }
+    .lightbox.show{display:flex}
+    .lightbox img{max-width:90%; max-height:88%; border-radius:8px; box-shadow:0 40px 120px rgba(0,0,0,0.8);}
+    .navBtn{position:fixed; top:50%; transform:translateY(-50%); font-size:32px; background:transparent; border:none; color:#fff; cursor:pointer; padding:14px; z-index:4100}
+    .navBtn.left{left:8px}
+    .navBtn.right{right:8px}
+    .closeBtn{position:fixed; right:18px; top:18px; z-index:4100; background:rgba(255,255,255,0.06); padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); cursor:pointer}
+
+    /* footer */
+    footer{position:fixed; left:18px; bottom:18px; z-index:2000; color:#cbd5e1; font-size:13px}
+
+    /* responsive tweaks */
+    @media (max-width:720px){
+      :root{--polaroid-w:160px; --polaroid-h:200px}
+      header.controls{left:10px; right:10px; top:10px}
+      footer{left:10px; bottom:10px}
+    }
+  </style>
+</head>
+<body>
+  <header class="controls">
+    <div class="left">
+      <button id="shuffleBtn" class="btn small">Shuffle</button>
+      <button id="spreadBtn" class="btn small">Spread</button>
+      <button id="gatherBtn" class="btn small">Gather</button>
+      <span class="muted">Loaded: <span id="count">0</span></span>
+    </div>
+    <div>
+      <button id="helpBtn" class="btn small">Usage</button>
+    </div>
+  </header>
+
+  <div id="stage" aria-live="polite"></div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true">
+    <button class="navBtn left" id="prevBtn">❮</button>
+    <img id="lightboxImg" src="" alt=""/>
+    <button class="navBtn right" id="nextBtn">❯</button>
+    <button class="closeBtn" id="closeBtn">Close</button>
+  </div>
+
+  <footer>Tip: You can drag photos. Click to open larger. Put your images in <code>../assets/images/gallery/</code></footer>
+
+  <script>
+  /*
+    Single-file Scattered Polaroids Gallery
+    - Auto-detects images in ../assets/images/gallery using a numeric scan (1..MAX_SCAN)
+    - Tries extensions: jpg, jpeg, png
+    - Creates scattered polaroid elements with random rotation and position
+    - Drag to move, click to open lightbox, arrows to navigate
+    - Controls: Shuffle, Spread, Gather
+
+    IMPORTANT: Browsers served from file:// may block some features on some setups. It's recommended to serve via a local static server (python -m http.server or similar).
+  */
+
+  (function(){
+    const IMAGE_PATH = '../assets/images/gallery';
+    const MAX_SCAN = 60; // will try 1..MAX_SCAN
+    const exts = ['jpg','jpeg','png'];
+    const stage = document.getElementById('stage');
+    const countEl = document.getElementById('count');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const closeBtn = document.getElementById('closeBtn');
+
+    let images = []; // {src, name}
+    let polaroids = [];
+    let zIndexBase = 100;
+    let activeIndex = -1;
+
+    // try to load images by numeric filename scanning
+    function tryLoadAll(){
+      const promises = [];
+      for(let i=1;i<=MAX_SCAN;i++){
+        promises.push(new Promise(resolve => {
+          (function tryExt(j){
+            if(j>=exts.length){ resolve(null); return; }
+            const src = `${IMAGE_PATH}/${i}.${exts[j]}`;
+            const img = new Image();
+            img.onload = ()=> resolve({src, name: `${i}.${exts[j]}`});
+            img.onerror = ()=> tryExt(j+1);
+            img.src = src;
+          })(0);
+        }));
+      }
+      return Promise.all(promises).then(results => results.filter(Boolean));
+    }
+
+    // fallback: if no numbered images found try to load everything using a simple known list (0..)
+    // but since we can't list directories from client, we depend on numeric scan.
+
+    function createPolaroid(imgObj, idx){
+      const el = document.createElement('div');
+      el.className = 'polaroid';
+      el.dataset.index = idx;
+      // random width jitter
+      const w = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--polaroid-w'))||220;
+      const h = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--polaroid-h'))||260;
+      el.style.width = `${w}px`;
+      el.style.height = `${h}px`;
+
+      const pin = document.createElement('div'); pin.className='pin'; el.appendChild(pin);
+      const im = document.createElement('img'); im.className='photo'; im.src = imgObj.src; im.alt = imgObj.name; el.appendChild(im);
+      const cap = document.createElement('div'); cap.className='caption'; cap.textContent = imgObj.name; el.appendChild(cap);
+
+      // initial random placement
+      placeRandom(el);
+      // random rotation between -30 and 30
+      const rot = (Math.random()*60)-30;
+      el.style.transform = `rotate(${rot}deg)`;
+      el.style.zIndex = ++zIndexBase;
+
+      // events: bring to front on pointerdown
+      el.addEventListener('pointerdown', e=>{
+        el.setPointerCapture(e.pointerId);
+        el.style.zIndex = ++zIndexBase;
+      });
+
+      // click to open lightbox (distinguish drag)
+      let isDragging=false, startX=0, startY=0, origX=0, origY=0;
+      el.addEventListener('pointerdown', e=>{
+        isDragging=false; startX=e.clientX; startY=e.clientY;
+        const rect = el.getBoundingClientRect(); origX = rect.left; origY = rect.top;
+        el.dataset.dragging='yes';
+      });
+      el.addEventListener('pointermove', e=>{
+        if(!el.dataset.dragging) return;
+        const dx = e.clientX - startX, dy = e.clientY - startY;
+        if(Math.hypot(dx,dy) > 6) { isDragging=true; }
+        if(isDragging){
+          el.style.left = (origX + dx) + 'px';
+          el.style.top = (origY + dy) + 'px';
+          el.style.transition = 'none';
+        }
+      });
+      el.addEventListener('pointerup', e=>{
+        if(el.dataset.dragging) delete el.dataset.dragging;
+        el.style.transition = '';
+        if(!isDragging){ openLightbox(idx); }
+      });
+
+      // double-click to reset rotation
+      el.addEventListener('dblclick', e=>{
+        el.style.transform = 'rotate(0deg)';
+      });
+
+      stage.appendChild(el);
+      polaroids.push(el);
+    }
+
+    function placeRandom(el){
+      const pad = 20;
+      const stRect = stage.getBoundingClientRect();
+      const elW = el.offsetWidth || parseInt(getComputedStyle(el).width);
+      const elH = el.offsetHeight || parseInt(getComputedStyle(el).height);
+      const x = Math.random()*(stRect.width - elW - pad*2) + pad;
+      const y = Math.random()*(stRect.height - elH - pad*2) + pad + 40; // push down a bit
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+    }
+
+    function shuffleAll(){
+      polaroids.forEach(el=>{
+        placeRandom(el);
+        const rot = (Math.random()*60)-30;
+        el.style.transform = `rotate(${rot}deg)`;
+      });
+    }
+
+    function spread(){
+      // spread to larger area with gentle rotation
+      polaroids.forEach((el,i)=>{
+        const st = stage.getBoundingClientRect();
+        const x = (st.width/(polaroids.length+1))*(i+1) - el.offsetWidth/2;
+        const y = Math.random()*(st.height*0.6);
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+        el.style.transform = `rotate(${(Math.random()*20)-10}deg)`;
+      });
+    }
+
+    function gather(){
+      // stack in center
+      const st = stage.getBoundingClientRect();
+      const cx = st.width/2; const cy = st.height/2;
+      polaroids.forEach((el,i)=>{
+        el.style.left = (cx - el.offsetWidth/2 + (Math.random()*40-20)) + 'px';
+        el.style.top = (cy - el.offsetHeight/2 + (Math.random()*40-20)) + 'px';
+        el.style.transform = `rotate(${(Math.random()*10)-5}deg)`;
+      });
+    }
+
+    function openLightbox(idx){
+      if(idx<0 || idx>=images.length) return;
+      activeIndex = idx;
+      lbImg.src = images[idx].src; lbImg.alt = images[idx].name;
+      lightbox.classList.add('show');
+      lightbox.setAttribute('aria-hidden','false');
+    }
+    function closeLightbox(){
+      lightbox.classList.remove('show');
+      lightbox.setAttribute('aria-hidden','true');
+      lbImg.src = '';
+      activeIndex = -1;
+    }
+    function next(){ if(activeIndex<images.length-1) openLightbox(activeIndex+1); }
+    function prev(){ if(activeIndex>0) openLightbox(activeIndex-1); }
+
+    // keyboard nav
+    window.addEventListener('keydown', e=>{
+      if(lightbox.classList.contains('show')){
+        if(e.key==='ArrowRight') next();
+        if(e.key==='ArrowLeft') prev();
+        if(e.key==='Escape') closeLightbox();
+      }
+    });
+
+    // lightbox click outside image to close
+    lightbox.addEventListener('pointerdown', e=>{
+      if(e.target === lightbox) closeLightbox();
+    });
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // controls
+    document.getElementById('shuffleBtn').addEventListener('click', ()=>{ shuffleAll(); });
+    document.getElementById('spreadBtn').addEventListener('click', ()=>{ spread(); });
+    document.getElementById('gatherBtn').addEventListener('click', ()=>{ gather(); });
+    document.getElementById('helpBtn').addEventListener('click', ()=>{
+      alert('Place images in: ../assets/images/gallery/ as numeric names (1.jpg, 2.webp, ...) or up to the configured MAX_SCAN.\n\nControls:\n- Drag photos to move\n- Click to open lightbox\n- Shuffle/Spread/Gather to arrange\n- Double-click a photo to reset its rotation');
+    });
+
+    // resize reflow
+    let resizeTO;
+    window.addEventListener('resize', ()=>{
+      clearTimeout(resizeTO);
+      resizeTO = setTimeout(()=>{
+        polaroids.forEach(el=> placeRandom(el));
+      },220);
+    });
+
+    // initialization
+    tryLoadAll().then(found => {
+      images = found;
+      // if nothing found, instruct user
+      if(images.length===0){
+        countEl.textContent = '0';
+        setTimeout(()=>{
+          stage.innerHTML = `<div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); color:#cbd5e1; text-align:center; max-width:680px">No images detected in <code>${IMAGE_PATH}</code> using numeric scan (1..${MAX_SCAN}).<br><br>Please either:<ul style=\"text-align:left;display:inline-block;margin-top:8px\"><li>Place images named 1.jpg, 2.jpg, ... in that folder</li><li>Or change <code>MAX_SCAN</code> in the HTML to a larger number</li></ul></div>`;
+        },50);
+        return;
+      }
+      countEl.textContent = images.length;
+      images.forEach((im,i)=> createPolaroid(im,i));
+      // small stagger to make it feel alive
+      setTimeout(()=> shuffleAll(), 180);
+    });
+
+  })();
+  </script>
+</body>
+</html>

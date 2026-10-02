@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPCE Robocon | NIT Calicut</title>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tan+Memories&display=swap" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(227, 227, 227);
+      font-family: 'Tan Memories', sans-serif;
+      cursor: none;
+      overflow: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(60, 60, 60, 0.55);
+      backdrop-filter: blur(15px) saturate(160%);
+      -webkit-backdrop-filter: blur(15px) saturate(160%);
+      padding: 14px 40px;
+      border-radius: 50px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+      z-index: 1000;
+      min-width: 65%;
+      max-width: 1100px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #f5f5f5;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: linear-gradient(120deg, #fff, #aaa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: opacity 0.3s ease;
+    }
+    .logo:hover { opacity: 0.8; }
+
+    .nav-links { display: flex; gap: 2.2rem; }
+    .nav-links a {
+      text-decoration: none;
+      color: #ddd;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      transition: all 0.35s ease;
+      padding: 6px 2px;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #888, #fff, #888);
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s ease;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .nav-links a:hover {
+      color: #fff;
+      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+      transform: translateY(-2px);
+    }
+
+    /* SPONSOR BUTTON */
+    .btn-sponsor {
+      position: relative;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 22px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      overflow: hidden;
+      z-index: 1;
+      box-shadow: 0 0 12px rgba(255,255,255,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-sponsor:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 0 18px rgba(255,255,255,0.35);
+    }
+    .btn-sponsor::before {
+      content: "";
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; bottom: -2px;
+      border-radius: 34px;
+      background: linear-gradient(90deg, #555, #aaa, #555);
+      background-size: 300% 300%;
+      animation: moveLine 4s linear infinite;
+      z-index: -1;
+    }
+    @keyframes moveLine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* SCENE WRAPPER */
+    .scene-wrapper {
+      width: 78vw;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+      background-color: white;
+      overflow: hidden;
+      z-index: 100;
+    }
+    spline-viewer {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+    }
+
+    /* MAIN TITLE */
+    .title {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 15rem;
+      font-weight: bold;
+      color: white;
+      z-index: 1000;
+      letter-spacing: 4px;
+      mix-blend-mode: difference;
+      padding: 12px 24px;
+    }
+
+    /* SIDE TEXT */
+    .side-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 120px;
+      background: rgb(227, 227, 227);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 800;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 4rem;
+      font-weight: bold;
+      color: #111;
+      animation: scrollText 20s linear infinite;
+    }
+    @keyframes scrollText {
+      0% { transform: rotate(180deg) translateY(100%); }
+      100% { transform: rotate(180deg) translateY(-100%); }
+    }
+
+    /* Custom cursor */
+    body, a, button, input, textarea { cursor: none !important; }
+    .cursor {
+      position: fixed;
+      top: 0; left: 0;
+      width: 22px;
+      height: 22px;
+      border: 2px solid #111;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease, background 0.2s;
+      z-index: 2000;
+    }
+    .cursor.hovered {
+      transform: translate(-50%, -50%) scale(1.7);
+      background: rgba(0,0,0,0.15);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">SPARK</div>
+    <div class="nav-links">
+      <a href="#about">About Us</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#events">Events</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-sponsor">Sponsor Us</button>
+    </div>
+  </nav>
+
+  <!-- BIG TITLE -->
+  <div class="title">SPARK</div>
+  <div class="side-left">We Bring Robots To Life</div>
+
+  <!-- SCENE -->
+  <div class="scene-wrapper">
+    <spline-viewer 
+      url="https://prod.spline.design/OW-JA8uLXHsfViOy/scene.splinecode">
+    </spline-viewer>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+
+  <script>
+    // Custom cursor
+    const cursor = document.querySelector(".cursor");
+    const links = document.querySelectorAll("a, button");
+    document.addEventListener("mousemove", e => {
+      cursor.style.top = e.clientY + "px";
+      cursor.style.left = e.clientX + "px";
+    });
+    links.forEach(link => {
+      link.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
+      link.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
+    });
+  </script>
+<script src="../assets/js/mobile-navbar.js"></script>
+</body>
+</html>

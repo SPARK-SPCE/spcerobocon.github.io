@@ -1,0 +1,107 @@
+[
+    {
+
+        "name": "Amar Nath H",
+        "photo": "assets/images/team/b14/amarnath-h.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/amarnathh"
+        }
+        ]
+    },
+    {
+
+        "name": "Guru Teja Bojanapu Reddy",
+        "photo": "assets/images/team/b14/g-t-b-reddy.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/guru-teja-b-r/"
+        }
+        ]
+    },
+    {
+
+        "name": "G Vijay Vamsi",
+        "photo": "assets/images/team/b14/vijay-vamsi.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/vijay-vamsi-1b949010b/"
+        }
+        ]
+    },
+    {
+        "name": "Karthik P Moothedath ",
+        "photo": "assets/images/team/b14/karthik.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/karthikpmoothedath/"
+        }
+        ]
+    },
+    {
+        "name": "Arun M",
+        "photo": "assets/images/team/b14/arun-m.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/ARUN-M-54b49218a/"
+        }
+        ]
+    },
+    {
+
+        "name": "P Chandana",
+        "photo": "assets/images/team/b14/chandana.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/chandana-poreddy-293085bb/"
+        }
+        ]
+    },
+    {
+
+        "name": "Rodrigues Neil Francis",
+        "photo": "assets/images/team/b14/neil.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/neilrodrigues51/"
+        }
+        ]
+    },
+    {
+
+        "name": "Dr. Su Shruthi CM",
+        "photo": "assets/images/team/b14/shruthi.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/shruthicm/"
+        }
+        ]
+    },
+    {
+        "name": "N M S Vyshnavi ",
+        "photo": "assets/images/team/b14/n-m-s-vyshnavi.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/monika-sri-vyshnavi-nagalla-169540100/"
+        }
+        ]
+    }
+]

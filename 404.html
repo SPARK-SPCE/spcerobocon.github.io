@@ -1,179 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 — BOT NOT FOUND | SPCE ROBOCON</title>
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
-  <link rel="stylesheet" href="assets/css/global.css" />
-  <link rel="stylesheet" href="assets/css/nav.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>SPARK | Page Not Found</title>
+  <link rel="canonical" href="https://spark.com/404" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon.svg" />
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="/src/styles/fonts.css" />
+  <link rel="stylesheet" href="/src/styles/navbar.css" />
+  <link rel="stylesheet" href="/src/styles/footer.css" />
+  <link rel="stylesheet" href="/src/styles/cursor.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Sora:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+
   <style>
-    .error-page {
+    :root {
+      --bg:#000;
+      --fg:#fff;
+      --radius:14px;
+    }
+
+    * {
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html, body {
+      min-height:100%;
+    }
+
+        body {
+      display: flex;
+      flex-direction: column;
       min-height: 100vh;
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto;
+    }
+
+    /* main should take remaining space */
+    main {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       text-align: center;
-      position: relative;
-      z-index: 10;
-      padding: 2rem;
-    }
-
-    .error-code {
-      font-family: var(--font-heading);
-      font-size: clamp(6rem, 20vw, 14rem);
-      font-weight: 900;
-      line-height: 1;
-      color: var(--text-primary);
-      position: relative;
-      display: inline-block;
-      letter-spacing: 0.05em;
-    }
-
-    .error-code .glitch-404::before,
-    .error-code .glitch-404::after {
-      content: '404';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-    }
-
-    .error-code .glitch-404::before {
-      color: var(--accent-cyan);
-      animation: glitch1 2s infinite;
-      clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
-    }
-
-    .error-code .glitch-404::after {
-      color: var(--accent-orange);
-      animation: glitch2 2s infinite;
-      clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
-    }
-
-    .error-robot {
-      font-size: 5rem;
-      margin: 2rem 0 1rem;
-      animation: robotFloatError 3s ease-in-out infinite;
-      filter: drop-shadow(0 0 30px rgba(0,245,255,0.4));
-    }
-
-    @keyframes robotFloatError {
-      0%, 100% { transform: translateY(0) rotate(-5deg); }
-      50% { transform: translateY(-20px) rotate(5deg); }
-    }
-
-    .error-title {
-      font-family: var(--font-heading);
-      font-size: clamp(1rem, 3vw, 1.5rem);
-      color: var(--accent-cyan);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      text-shadow: var(--glow-cyan);
-      margin-bottom: 0.75rem;
-    }
-
-    .error-sub {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      letter-spacing: 0.15em;
-      margin-bottom: 3rem;
-      max-width: 500px;
-    }
-
-    .error-terminal {
-      background: rgba(0,245,255,0.03);
-      border: 1px solid var(--border-cyan);
-      border-radius: 8px;
-      padding: 1.5rem 2rem;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--accent-green);
-      margin-bottom: 2.5rem;
-      text-align: left;
-      max-width: 450px;
+      padding: 120px 22px;
       width: 100%;
     }
 
-    .error-terminal .line { margin-bottom: 0.3rem; }
-    .error-terminal .prompt { color: var(--accent-cyan); }
-    .error-terminal .err { color: var(--accent-orange); }
+    /* footer should stretch full width */
+    #footer-placeholder {
+      width: 100%;
+    }
+
+    .error-art {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:14px;
+      margin:40px 0 20px;
+    }
+
+        .error-art img {
+      filter: grayscale(100%) contrast(100%);
+      width: min(680px, 92vw);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .tagline {
+      font-weight:600;
+      color:rgba(255,255,255,0.85);
+      margin-top:10px;
+    }
+
+    .error-message {
+      font-size:1.2rem;
+      color:rgba(255,255,255,.8);
+      margin-bottom:24px;
+    }
+
+    .home-link {
+      background:var(--fg);
+      color:var(--bg);
+      padding:12px 28px;
+      border-radius:var(--radius);
+      text-decoration:none;
+      font-weight:700;
+      transition:.3s ease;
+    }
+
+    .home-link:hover {
+      background:rgba(255,255,255,.85);
+    }
+
+    .sr-only {
+      position:absolute;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+    }
   </style>
 </head>
+
 <body>
-  <div id="scroll-progress"></div>
-  <div id="cursor-dot"></div>
-  <div id="cursor-ring"></div>
+  <!-- Navbar -->
+  <div id="navbar-placeholder"></div>
 
-  <div class="star-field" aria-hidden="true">
-    <div class="stars-layer stars-small"></div>
-    <div class="stars-layer stars-medium"></div>
-    <div class="stars-layer stars-large"></div>
-  </div>
-  <div class="circuit-texture" aria-hidden="true"></div>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div id="spark-easter-egg" aria-hidden="true">🤖</div>
+  <!-- Main content -->
+  <main>
+    <h1 class="sr-only">404 — Page Not Found</h1>
 
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <span class="nav-logo-text">SPARK</span>
-        <span class="nav-logo-sub">SPCE ROBOCON</span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html"        class="nav-link">Home</a>
-        <a href="projects.html"     class="nav-link">Projects</a>
-        <a href="achievements.html" class="nav-link">Achievements</a>
-        <a href="team.html"         class="nav-link">Team</a>
-        <a href="history.html"      class="nav-link">History</a>
-        <a href="crowdfund.html"    class="nav-link nav-link-cta">Support Us</a>
-        <a href="join.html"         class="nav-link">Join</a>
-      </div>
-      <button class="nav-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>
-    <div class="nav-mobile">
-      <a href="index.html"        class="nav-link">Home</a>
-      <a href="projects.html"     class="nav-link">Projects</a>
-      <a href="achievements.html" class="nav-link">Achievements</a>
-      <a href="team.html"         class="nav-link">Team</a>
-      <a href="history.html"      class="nav-link">History</a>
-      <a href="crowdfund.html"    class="nav-link">Support Us</a>
-      <a href="join.html"         class="nav-link">Join</a>
-    </div>
-  </nav>
+    <figure class="error-art">
+      <img
+        src="https://spark.com/assets/images/main/404.webp"
+        alt="Page not found illustration"
+        loading="eager"
+      />
+    </figure>
 
-  <main class="error-page">
-    <div class="error-code">
-      <span class="glitch-404" data-text="404" style="position:relative;display:inline-block;">404</span>
-    </div>
-
-    <div class="error-robot">🤖</div>
-
-    <h1 class="error-title">ERROR 404 — BOT NOT FOUND</h1>
-    <p class="error-sub">
-      The unit you are looking for has been lost in the field.<br/>
-      Initiating emergency return-to-base protocol...
+    <div class="tagline">Oops! The page you are looking for does not exist.</div>
+    <p class="error-message">
+      It might have been moved or never existed.
     </p>
 
-    <div class="error-terminal">
-      <div class="line"><span class="prompt">$ </span>locate --path "/requested-page"</div>
-      <div class="line err">ERROR: Target unit not in registry</div>
-      <div class="line"><span class="prompt">$ </span>suggest --alternatives</div>
-      <div class="line">→ /index.html .......... [ONLINE]</div>
-      <div class="line">→ /projects.html ....... [ONLINE]</div>
-      <div class="line">→ /team.html ........... [ONLINE]</div>
-      <div class="line">→ /join.html ........... [OPEN]</div>
-      <div class="line"><span class="prompt">$ </span>_</div>
-    </div>
-
-    <a href="index.html" class="btn btn-primary" data-ag-magnetic>
-      ← Return to Base
-    </a>
+    <a href="https://spark.com" class="home-link">Go Back Home</a>
   </main>
 
-  <script src="https://cdn.antigravity.dev/ag.js"></script>
-  <script src="assets/js/nav.js"></script>
-  <script src="assets/js/cursor.js"></script>
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Scripts -->
+  <script src="/src/scripts/cursor.js"></script>
+  <script src="/src/scripts/mobile-navbar.js"></script>
+  <script src="/src/scripts/componentLoader.js"></script>
+  <script>
+    loadComponent("navbar-placeholder", "/src/components/navbar.html");
+    loadComponent("footer-placeholder", "/src/components/footer.html");
+  </script>
 </body>
 </html>

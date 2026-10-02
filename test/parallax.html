@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How it all began...</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+    }
+
+    .about-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 2rem;
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .about-content {
+      flex: 1;
+      max-width: 50%;
+      z-index: 2;
+      position: relative;
+    }
+
+    .about-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    /* IMAGE + TEXT WRAPPER */
+    .about-image {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      perspective: 1200px;
+    }
+
+    .image-wrapper {
+      position: relative;
+      display: inline-block;
+      transform-style: preserve-3d; /* allow layering in 3D */
+      transition: transform 0.6s ease;
+    }
+
+    .image-wrapper:hover {
+      transform: rotateY(8deg) translateZ(40px);
+    }
+
+    .bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) translateZ(-80px); /* farther back */
+      font-size: 7rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.15);
+      white-space: nowrap;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .image-wrapper img {
+      position: relative;
+      z-index: 1;
+      transform: translateZ(0); /* in front of text */
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-content {
+        max-width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .bg-text {
+        font-size: 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="about-section">
+    <div class="about-content">
+      <h2>Our Story</h2>
+      <p>
+        This is where it all began... a journey full of ideas, creativity,
+        and passion. What started small has grown into something much bigger,
+        always driven by the same vision.
+      </p>
+    </div>
+
+    <div class="about-image">
+      <div class="image-wrapper">
+        <span class="bg-text">How it all began...</span>
+        <img src="../assets/images/about/image.webp" alt="About Image">
+      </div>
+    </div>
+  </section>
+</body>
+</html>

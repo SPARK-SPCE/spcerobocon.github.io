@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SPARK | SPCE Robocon</title>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tan+Memories&display=swap" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      width: 100%; height: 100%;
+      font-family: 'Tan Memories', sans-serif;
+      cursor: none;
+      overflow-x: hidden;
+      background: #000; /* always black */
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 20px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(30,30,30,0.75); /* semi-transparent dark gray */
+      backdrop-filter: blur(15px) saturate(160%);
+      -webkit-backdrop-filter: blur(15px) saturate(160%);
+      padding: 14px 40px;
+      border-radius: 50px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+      z-index: 1000;
+      min-width: 65%; max-width: 1100px;
+      overflow: hidden;
+    }
+    nav::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 50%; height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.2), transparent);
+      transform: skewX(-25deg);
+      animation: shine 6s infinite;
+    }
+    @keyframes shine {
+      0% { left: -100%; }
+      50% { left: 200%; }
+      100% { left: 200%; }
+    }
+    .logo {
+      font-weight: 700; font-size: 1.4rem; letter-spacing: 3px; text-transform: uppercase;
+      color: #fff;
+      z-index: 2;
+    }
+    .nav-links { display: flex; gap: 2rem; z-index: 2; }
+    .nav-links a {
+      text-decoration: none; font-weight: 500; padding: 6px 2px; transition: all 0.3s ease;
+      color: #ccc;
+    }
+    .nav-links a:hover { color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.5); }
+    .btn-sponsor {
+      background: #fff; color: #111; border: none; border-radius: 30px;
+      padding: 10px 22px; font-weight: 600; cursor: pointer; font-size: 0.95rem;
+    }
+
+    /* SLIDER */
+    .slider-container {
+      width: 100vw; height: 100vh; overflow: hidden; position: relative;
+    }
+    .slider {
+      display: flex; width: 200vw; height: 100%;
+      transition: transform 1.5s ease-in-out;
+    }
+    .scene-wrapper {
+      width: 100vw; height: 100%; flex-shrink: 0;
+      position: relative; overflow: hidden;
+      background: #000; /* black for all scenes */
+    }
+    spline-viewer {
+      width: 115%; height: 115%;
+      position: absolute; top: -5%; left: -7%;
+      pointer-events: auto;
+      background: #000 !important; /* spline canvas forced black */
+    }
+
+    /* Title (restore inversion) */
+    .title {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+      font-size: 15rem; font-weight: bold; color: white;opacity: 0.6; letter-spacing: 4px;
+      mix-blend-mode: difference; /* invert against scene */
+      z-index: 900;
+    }
+
+    /* Side text */
+    .side-left {
+      position: absolute; top: 0; left: 0; height: 100%; width: 120px;
+      background: #000;
+      display: flex; justify-content: center; align-items: center;
+      writing-mode: vertical-rl; transform: rotate(180deg);
+      font-size: 4rem; font-weight: bold; color: #fff;
+      animation: scrollText 20s linear infinite; z-index: 800;
+    }
+    @keyframes scrollText {
+      0% { transform: rotate(180deg) translateY(100%); }
+      100% { transform: rotate(180deg) translateY(-100%); }
+    }
+
+    /* Scroll arrow */
+    .scroll-arrow {
+      position: absolute;
+      bottom: 40px; right: 50px;
+      font-size: 4.5rem;
+      cursor: pointer; animation: bounce 1.5s infinite;
+      z-index: 950;
+      color: #fff;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Placeholders */
+    section {
+      height: 100vh; display: flex; justify-content: center; align-items: center;
+      font-size: 3rem; font-weight: bold;
+      background: #000; color: #fff;
+      border-bottom: 2px solid #333;
+    }
+
+    /* Cursor */
+    .cursor {
+      position: fixed; top: 0; left: 0;
+      width: 18px; height: 18px;
+      border-radius: 50%; background: #fff;
+      transform: translate(-50%, -50%);
+      pointer-events: none; z-index: 2000;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .cursor.hovered {
+      transform: translate(-50%, -50%) scale(1.6);
+      box-shadow: 0 0 15px rgba(255,255,255,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="logo">SPARK</div>
+    <div class="nav-links">
+      <a href="about.html">About Us</a>
+      <a href="projects.html">Projects</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="events.html">Events</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="btn-sponsor">Sponsor Us</button>
+  </nav>
+
+  <!-- SLIDER -->
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <!-- Scene 1 (Robot) -->
+      <div class="scene-wrapper">
+        <spline-viewer url="https://prod.spline.design/XVLOc0TAckLophBN/scene.splinecode"></spline-viewer>
+        <div class="title">SPARK</div>
+        <div class="side-left">We Bring Robots To Life</div>
+      </div>
+      <!-- Scene 2 (Drone) -->
+      <div class="scene-wrapper">
+        <spline-viewer url="https://prod.spline.design/YpsdPvbFG2DWDRcp/scene.splinecode"></spline-viewer>
+      </div>
+    </div>
+
+    <!-- Scroll arrow -->
+    <div class="scroll-arrow" id="scrollArrow">⬇</div>
+  </div>
+
+  <!-- Placeholders -->
+  <section id="about">About Us Section</section>
+  <section>Projects Section</section>
+  <section>Achievements Section</section>
+  <section>Events Section</section>
+  <section>Team Section</section>
+  <section>Contact Section</section>
+
+  <!-- Cursor -->
+  <div class="cursor"></div>
+
+  <script>
+    const cursor = document.querySelector(".cursor");
+    const links = document.querySelectorAll("a, button");
+    const slider = document.getElementById("slider");
+    const scrollArrow = document.getElementById("scrollArrow");
+
+    document.addEventListener("mousemove", e => {
+      cursor.style.top = e.clientY + "px";
+      cursor.style.left = e.clientX + "px";
+    });
+    links.forEach(link => {
+      link.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
+      link.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
+    });
+
+    // Disable zoom globally
+    window.addEventListener("wheel", e => { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
+    window.addEventListener("gesturestart", e => e.preventDefault());
+
+    // Disable scroll/zoom inside Spline
+    document.querySelectorAll("spline-viewer").forEach(spline => {
+      spline.addEventListener("wheel", e => e.preventDefault(), { passive: false });
+    });
+
+    // Scene cycling (both remain black now)
+    let currentIndex = 0;
+    const scenes = 2;
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % scenes;
+      slider.style.transform = `translateX(-${100 * currentIndex}vw)`;
+    }, 10000);
+
+    // Scroll arrow ↗ first section
+    scrollArrow.addEventListener("click", () => {
+      document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>

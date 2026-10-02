@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About | Our Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Inter:wght@300;600;800&family=Poppins:wght@100;200;400;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000;
+  --fg:#fff;
+  --accent: rgba(255,255,255,0.06);
+  --max-width: 1100px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.6;
+}
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 80px 28px 48px 28px;
+  box-sizing: border-box;
+}
+.site-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  z-index: 60;
+  padding-bottom: 2px;
+}
+.site-title {
+  margin: 0;
+  font-family: "Libre Caslon Display", serif;
+  font-size: 3rem;
+  line-height: 1;
+}
+.tagline {
+  margin: 6px 0 0 0;
+  font-weight: 300;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.96);
+  max-width: 100%;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.55);
+}
+
+/* Hero */
+.hero {
+  margin-top: 28px;
+  width: 100%;
+  height: 52vh;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 6px;
+  position: relative;
+  background: var(--accent);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+  perspective: 1200px;
+  z-index: 10;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60%;
+  height: 60%;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0) 100%);
+  z-index: 2;
+}
+.image-scene {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+  display: block;
+  transform-origin: center center;
+  position: relative;
+  z-index: 1;
+}
+.hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* show entire image */
+  object-position: center;  /* always centered */
+  transform: scale(1) translateZ(0);
+  transition: transform 0.3s ease;
+  backface-visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.hero .bg-text {
+  position: absolute;
+  left: 50%;
+  top: 36px;
+  transform: translateX(-50%) translateZ(-80px);
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 3.8rem;
+  color: #ffffff;
+  pointer-events: none;
+  text-shadow: 0 6px 24px rgba(0,0,0,0.7);
+  z-index: 1;
+  white-space: nowrap;
+}
+.hero-caption {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  margin: 8px auto;   /* top/bottom margin + auto left/right */
+  text-align: center;
+  max-width: 90%;      /* optional, keeps caption from being too wide */
+}
+
+
+.intro {
+  margin: 28px 0 36px 0;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.95);
+}
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: start;
+  margin-bottom: 80px;
+}
+.col h2 {
+  font-family: "Libre Caslon Display", serif;
+  font-size: 2rem;
+  margin: 0 0 12px 0;
+}
+.col p {
+  margin: 0 0 18px 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.92);
+}
+.muted { color: rgba(255,255,255,0.7); font-size:0.95rem; }
+
+@media (max-width: 980px) {
+  .site-title { font-size: 2.4rem; }
+  .tagline { max-width: 100%; font-size: 1rem; }
+  .hero { height: 44vh; min-height: 260px; }
+  .hero::before { width: 100%; height: 45%; }
+  .hero .bg-text { left: 20px; top: 20px; font-size: 1.4rem; transform: translateZ(0); }
+  .columns { gap: 20px; }
+}
+@media (max-width: 720px) {
+  .page { padding: 56px 18px 36px 18px; }
+  .columns { grid-template-columns: 1fr; }
+  .site-header { flex-direction: column; align-items: flex-start; gap: 8px;}
+  .hero { height: 38vh; min-height: 220px; perspective: none; }
+  .image-scene { transform: none !important; }
+  .hero img { transform: scale(1.01); }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="site-header">
+  <div>
+    <h1 class="site-title">About US</h1>
+    <p class="tagline"><strong><em>Driven by Innovation, Fueled by Passion. Explore the boundless horizons of robotics.</em></strong></p>
+  </div>
+</header>
+
+<div class="hero" id="heroWrap">
+  <div class="image-scene" id="imageScene">
+    <span class="bg-text">How it all began...</span>
+    <img src="../assets/images/about/image.webp" alt="About image showing robotics" />
+  </div>
+</div>
+
+<p class="hero-caption">RIG Members of the B10 Batch with Prof. Sudheer A.P.</p>
+
+
+<p class="intro">
+  The SPCE Robocon (RIG) is a vibrant community at NIT Calicut where passion for robotics drives innovation and fosters a collaborative spirit. We bring together students from diverse engineering backgrounds, each contributing their unique expertise to the development of cutting-edge robotic solutions. More than just an extracurricular, RIG ignites curious minds through workshops, open labs and hands-on projects.
+</p>
+
+<section class="columns">
+  <div class="col left-col">
+    <h2>Where it all began</h2>
+    <p>
+      In 2011, a group of students became enthused about participating in RoboCon 2012. Despite efforts to construct robots during holidays, they faced funding challenges and were asked to prove credibility. Undeterred, the group broadened their scope and sought guidance, eventually forming a cohesive team of 14 students under the mentorship of Mr. Sudheer A.P.
+    </p>
+    <p>
+      Their first creation, Plotterbot v1.0, helped establish credibility at the institute. They restored lab equipment, secured extended lab access, and continued working through breaks. A pivotal presentation on <strong>May 20</strong> led to official recognition of the SPCE Robocon (RIG) and funding that enabled participation in RoboCon 2013.
+    </p>
+    <p class="muted">(This section tells the origin story and key milestones that helped launch RIG.)</p>
+  </div>
+
+  <div class="col right-col">
+    <h2>Way Forward</h2>
+    <p>
+      RIG now stands as a community defined by resilience and creativity. We continue to run workshops, mentor newcomers, and pursue projects that push the boundaries of what’s possible. Our focus is to inspire and educate, creating pathways for students to contribute to robotics research and real-world applications.
+    </p>
+
+    <h2 style="margin-top:18px;">What We Do?</h2>
+    <p>
+      UNLEASH INNOVATION — We organise hands-on workshops, open lab sessions, collaborative team projects, and competition prep. Our activities range from introductory electronics and programming sessions to advanced system design and deployment.
+    </p>
+    <p class="muted">(Workshops, outreach, project mentorship, competitions and community-building.)</p>
+  </div>
+</section>
+</div>
+
+<script>
+(function(){
+  const wrap = document.getElementById('heroWrap');
+  const scene = document.getElementById('imageScene');
+  const img = scene && scene.querySelector('img');
+  if (!wrap || !scene) return;
+
+  let enabled = window.innerWidth > 720;
+
+  function handleMove(e){
+    if (!enabled) return;
+    const rect = wrap.getBoundingClientRect();
+    const cx = rect.left + rect.width/2;
+    const cy = rect.top + rect.height/2;
+    const mouseX = (e.clientX || (e.touches && e.touches[0].clientX));
+    const mouseY = (e.clientY || (e.touches && e.touches[0].clientY));
+    if (mouseX == null || mouseY == null) return;
+    const dx = (mouseX - cx) / rect.width;
+    const dy = (mouseY - cy) / rect.height;
+    const rotX = (-dy * 6).toFixed(2);
+    const rotY = (dx * 8).toFixed(2);
+
+    scene.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(0px)`;
+    if (img) img.style.transform = `scale(1)`; // no jump
+  }
+
+  function reset(){
+    scene.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(0px)`;
+    if (img) img.style.transform = `scale(1)`;
+  }
+
+  function addListeners(){
+    wrap.addEventListener('mousemove', handleMove);
+    wrap.addEventListener('touchmove', handleMove, {passive:true});
+    wrap.addEventListener('mouseleave', reset);
+    wrap.addEventListener('touchend', reset);
+  }
+  function removeListeners(){
+    wrap.removeEventListener('mousemove', handleMove);
+    wrap.removeEventListener('touchmove', handleMove);
+    wrap.removeEventListener('mouseleave', reset);
+    wrap.removeEventListener('touchend', reset);
+    reset();
+  }
+
+  if (enabled) addListeners();
+
+  window.addEventListener('resize', ()=>{
+    const was = enabled;
+    enabled = window.innerWidth > 720;
+    if (enabled && !was) addListeners();
+    if (!enabled && was) removeListeners();
+  });
+})();
+</script>
+</body>
+</html>

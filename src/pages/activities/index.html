@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SPARK Activities | Workshops & Exhibitions</title>
+    <meta name="description" content="Explore SPARK's workshops and exhibitions. Join hands-on robotics workshops, technical sessions, and see our innovative projects showcased at exhibitions across India." />
+    <meta name="keywords" content="SPARK activities, robotics workshops, technical exhibitions, NIT Calicut, engineering workshops, robotics demonstrations, tech exhibitions, student activities" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="SPARK" />
+    <link rel="stylesheet" href="/src/styles/navbar.css" />
+    <link rel="stylesheet" href="/src/styles/cursor.css" />
+    <link rel="stylesheet" href="/src/styles/fonts.css" />
+
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spark.com/activities" />
+    <meta property="og:title" content="SPARK Activities | Workshops & Exhibitions" />
+    <meta property="og:description" content="Explore SPARK's workshops and exhibitions. Join hands-on robotics workshops and see our innovative projects showcased." />
+    <meta property="og:image" content="/assets/img/favicon.svg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://spark.com/activities" />
+    <meta property="twitter:title" content="SPARK Activities | Workshops & Exhibitions" />
+    <meta property="twitter:description" content="Explore SPARK's workshops and exhibitions. Join hands-on robotics workshops and see our innovative projects showcased." />
+    <meta property="twitter:image" content="/assets/img/favicon.svg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://spark.com/activities" />
+    
+    <link rel="stylesheet" href="/src/styles/fonts.css" />
+    <link rel="stylesheet" href="/src/styles/navbar.css" />
+    <link rel="stylesheet" href="/src/styles/footer.css" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.svg" />
+    <link rel="stylesheet" href="/src/styles/cursor.css" />
+    <link rel="stylesheet" href="/src/styles/activities.css" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Libre+Caslon+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "SPCE Robocon (RIG), NIT Calicut",
+      "alternateName": "SPARK",
+      "url": "https://spark.com",
+      "logo": "https://spark.com/assets/img/favicon.svg",
+      "description": "SPARK conducts workshops and exhibitions in robotics, AI, and engineering",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Calicut",
+        "addressRegion": "Kerala",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://instagram.com/rig_nitc",
+        "https://linkedin.com/company/rig-nitc"
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+    <main>
+      <!-- Workshops -->
+      <section class="hero" aria-labelledby="workshop-head">
+        <div class="left">
+          <h1 id="workshop-head">Workshops</h1>
+          <p class="tagline">We learn, we share, we grow together</p>
+        </div>
+      </section>
+      <div id="workshops" aria-live="polite">
+        <div class="empty" id="workshops-empty" style="display: none">
+          No workshops found.
+        </div>
+      </div>
+      <!-- Exhibitions -->
+      <section class="hero" aria-labelledby="exhib-head">
+        <div class="left">
+          <h2 id="exhib-head">Exhibitions</h2>
+          <p class="tagline">Showcasing our innovations to the world</p>
+        </div>
+      </section>
+      <div id="exhibitions" aria-live="polite">
+        <div class="empty" id="exhibitions-empty" style="display: none">
+          No exhibitions found.
+        </div>
+      </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+    <script src="/src/scripts/cursor.js"></script>
+    <script src="/src/scripts/mobile-navbar.js"></script>
+    <script src="/src/scripts/componentLoader.js"></script>
+    <script>
+      loadComponent("navbar-placeholder", "/src/components/navbar.html");
+      loadComponent("footer-placeholder", "/src/components/footer.html");
+    </script>
+    <script src="/src/scripts/activities.js"></script>
+  </body>
+</html>

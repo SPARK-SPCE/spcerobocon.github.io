@@ -1,0 +1,127 @@
+<html style="height: 100%; width: 100%;">
+  <head>
+    <meta name="viewport" content="width=device-width, minimum-scale=0.1">
+    <title>SPARK | SPCE Robocon</title>
+
+    <!-- Orbitron Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Navbar stylesheet -->
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+
+    <style>
+      body {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        font-family: 'Orbitron', sans-serif;
+        color: white;
+        overflow: hidden;
+      }
+
+      .hero {
+        margin-top: 120px; /* leaves room for navbar */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: left;
+        padding: 2rem;
+        gap: 3rem;
+      }
+
+      #slideshow {
+        filter: grayscale(1) invert(1);
+        background-color: white;
+        transition: opacity 1s ease-in-out;
+        width: 350px;   /* fixed width */
+        height: 350px;  /* fixed height */
+        object-fit: contain; /* keep proportions, fit inside box */
+        border-radius: 1rem;
+        flex-shrink: 0;
+      }
+
+      .text-block {
+        max-width: 600px;
+      }
+
+      .title {
+        font-size: 7rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 25px rgba(255,255,255,0.7);
+      }
+
+      .subtitle {
+        font-size: 1.6rem;
+        font-weight: 400;
+        opacity: 0.9;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <a href="../" class="logo">
+        <img src="../assets/img/favicon.svg" alt="Logo" style="filter: grayscale(1) invert(1);">
+      </a>
+      <div class="nav-links">
+        <a href="about/">About Us</a>
+        <a href="projects/">Projects</a>
+        <a href="achievements/">Achievements</a>
+        <a href="activities/">Activities</a>
+        <a href="team/">Team</a>
+        <a href="contact/">Contact</a>
+      </div>
+      <a class="btn-sponsor" href="contact/?name=Your%20name%20%2F%20organization&email=contact%40company.com&message=Interested%20in%20discussing%20partnership%20or%20sponsorship%20possibilities%2E
+">
+        Sponsor Us
+      </a>
+    </nav>
+
+    <!-- MAIN HERO -->
+    <div class="hero">
+      <div class="text-block">
+        <div class="title">SPARK</div>
+        <div class="subtitle">SPCE Robocon @ NIT Calicut</div>
+      </div>
+      <img id="slideshow">
+    </div>
+
+    <script>
+      function playSlideshow(imageList, delay = 3000) {
+        const img = document.getElementById("slideshow");
+        let index = 0;
+        img.src = imageList[index];
+
+        setInterval(() => {
+          img.style.opacity = 0;
+          setTimeout(() => {
+            index = (index + 1) % imageList.length;
+            img.src = imageList[index];
+            img.style.opacity = 1;
+          }, 1000);
+        }, delay);
+      }
+
+      const images = [
+        "https://fetchpik.com/images/fetchpik.com-iconscout-ACmY3VhRLG.webp",
+        "https://fetchpik.com/images/fetchpik.com-iconscout-JVEHOPAsq9.webp",
+        "https://fetchpik.com/images/fetchpik.com-iconscout-Eg4RsGoCqP.webp",
+        "https://fetchpik.com/images/fetchpik.com-iconscout-cop97rVqR4.webp",
+        "https://fetchpik.com/images/fetchpik.com-iconscout-7xEHnC2kKe.webp",
+        "https://fetchpik.com/images/fetchpik.com-iconscout-RKC3NkpS7s.webp",
+        "https://fetchpik.com/images/fetchpik.com-iconscout-Ahk9zBHuFC.webp",
+        "https://fetchpik.com/images/fetchpik.com-iconscout-MOCHKtWPT5.webp",
+        "https://fetchpik.com/images/fetchpik.com-iconscout-mGynwsBa0g.webp",
+        "https://fetchpik.com/images/fetchpik.com-iconscout-QHBRDnvIeZ.webp"
+        // "https://fetchpik.com/images/fetchpik.com-iconscout-IhQ7jSWOMF.webp",
+        // "https://fetchpik.com/images/fetchpik.com-iconscout-fGxanViJEO.webp",
+      ];
+
+      playSlideshow(images, 4000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,280 @@
+<section id="gallery">
+  <!-- Font Awesome (for nav arrows etc.) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    #gallery {
+      background: #111;
+      color: #fff;
+      font-family: "Libre Caslon Display", serif;
+      margin: 0;
+      padding: 100px 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #gallery h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+    }
+
+    #gallery .controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    #gallery .controls button {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #gallery .controls button:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.05);
+    }
+
+    #gallery #stage {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      max-height: 600px;
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* Polaroid */
+    #gallery .polaroid {
+      position: absolute;
+      width: 200px;
+      height: 240px;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: grab;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    #gallery .polaroid .photo {
+      width: calc(100% - 20px);
+      height: calc(100% - 40px);
+      margin: 10px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    #gallery .polaroid .caption {
+      font-size: 12px;
+      font-weight: 600;
+      color: #222;
+      padding: 4px;
+    }
+
+    #gallery .polaroid:hover {
+      transform: translateY(-10px) scale(1.05);
+    }
+
+    /* Lightbox */
+    #gallery .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #gallery .lightbox.show { display: flex; }
+
+    #gallery .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    #gallery .lightbox button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 10px;
+    }
+
+    #gallery #prevBtn { left: 30px; }
+    #gallery #nextBtn { right: 30px; }
+    #gallery #closeBtn {
+      top: 30px;
+      right: 30px;
+      transform: none;
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      #gallery .polaroid { width: 150px; height: 180px; }
+    }
+  </style>
+
+  <h2>Gallery</h2>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button id="shuffleBtn">Shuffle</button>
+    <button id="spreadBtn">Spread</button>
+    <button id="gatherBtn">Gather</button>
+    <button id="helpBtn">Help</button>
+  </div>
+
+  <!-- Polaroid Stage -->
+  <div id="stage"></div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+    <img id="lightboxImg" src="" alt=""/>
+    <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+    <button id="closeBtn"><i class="fas fa-times"></i></button>
+  </div>
+
+  <script>
+  (function(){
+    const IMAGE_PATH = './assets/images/gallery'; // 🔥 change this to your folder
+    const MAX_SCAN = 30;
+    const exts = ['jpg','jpeg','png'];
+    const stage = document.getElementById('stage');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const closeBtn = document.getElementById('closeBtn');
+
+    let images = [], polaroids = [], activeIndex = -1;
+
+    function tryLoadAll(){
+      const promises = [];
+      for(let i=1;i<=MAX_SCAN;i++){
+        promises.push(new Promise(resolve => {
+          (function tryExt(j){
+            if(j>=exts.length){ resolve(null); return; }
+            const src = `${IMAGE_PATH}/${i}.${exts[j]}`;
+            const img = new Image();
+            img.onload = ()=> resolve({src, name: `${i}.${exts[j]}`});
+            img.onerror = ()=> tryExt(j+1);
+            img.src = src;
+          })(0);
+        }));
+      }
+      return Promise.all(promises).then(results => results.filter(Boolean));
+    }
+
+    function placeRandom(el){
+      const pad = 20;
+      const stRect = stage.getBoundingClientRect();
+      const elW = el.offsetWidth;
+      const elH = el.offsetHeight;
+      const x = Math.random()*(stRect.width - elW - pad*2) + pad;
+      const y = Math.random()*(stRect.height - elH - pad*2) + pad;
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+    }
+
+    function createPolaroid(imgObj, idx){
+      const el = document.createElement('div');
+      el.className = 'polaroid';
+      el.dataset.index = idx;
+
+      const im = document.createElement('img');
+      im.className = 'photo';
+      im.src = imgObj.src;
+      el.appendChild(im);
+
+      const cap = document.createElement('div');
+      cap.className = 'caption';
+      cap.textContent = imgObj.name;
+      el.appendChild(cap);
+
+      placeRandom(el);
+      stage.appendChild(el);
+      polaroids.push(el);
+
+      el.addEventListener('click', ()=> openLightbox(idx));
+    }
+
+    function shuffleAll(){
+      polaroids.forEach(el=>{
+        placeRandom(el);
+        const rot = (Math.random()*60)-30;
+        el.style.transform = `rotate(${rot}deg)`;
+      });
+    }
+    function spread(){
+      polaroids.forEach((el,i)=>{
+        const st = stage.getBoundingClientRect();
+        const x = (st.width/(polaroids.length+1))*(i+1) - el.offsetWidth/2;
+        const y = Math.random()*(st.height*0.6);
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+      });
+    }
+    function gather(){
+      const st = stage.getBoundingClientRect();
+      const cx = st.width/2, cy = st.height/2;
+      polaroids.forEach(el=>{
+        el.style.left = (cx - el.offsetWidth/2 + (Math.random()*40-20)) + 'px';
+        el.style.top = (cy - el.offsetHeight/2 + (Math.random()*40-20)) + 'px';
+      });
+    }
+
+    function openLightbox(idx){
+      activeIndex = idx;
+      lbImg.src = images[idx].src;
+      lightbox.classList.add('show');
+    }
+    function closeLightbox(){
+      lightbox.classList.remove('show');
+      lbImg.src = '';
+    }
+    function next(){ if(activeIndex<images.length-1) openLightbox(activeIndex+1); }
+    function prev(){ if(activeIndex>0) openLightbox(activeIndex-1); }
+
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+    closeBtn.addEventListener('click', closeLightbox);
+
+    document.getElementById('shuffleBtn').addEventListener('click', shuffleAll);
+    document.getElementById('spreadBtn').addEventListener('click', spread);
+    document.getElementById('gatherBtn').addEventListener('click', gather);
+    document.getElementById('helpBtn').addEventListener('click', ()=>{
+      alert('Controls:\n- Shuffle, Spread, Gather\n- Click photo to view large\n- Use arrows to navigate');
+    });
+
+    tryLoadAll().then(found=>{
+      images = found;
+      if(images.length===0){
+        stage.innerHTML = "<p style='color:#aaa;margin-top:20px;'>No images found in gallery folder.</p>";
+        return;
+      }
+      images.forEach((im,i)=> createPolaroid(im,i));
+      setTimeout(()=> shuffleAll(), 200);
+    });
+  })();
+  </script>
+</section>
