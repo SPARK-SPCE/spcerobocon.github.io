@@ -1,18 +1,12 @@
 [
   {
-    "title": "Nawe Robotics",
-    "logo": "assets/images/startups/nawe.webp",
-    "image": "assets/images/startups/nawe01.webp",
-    "desc": "Nawe Robotics builds modular hardware and software-defined components that make it easier to develop systems with sensors and actuators.",
-    "link": "https://www.nmotion.in/", 
-    "linkedin": "https://www.linkedin.com/company/nawerobotics/"
+    "name": "Alumni in Industry",
+    "description": "SPARK alumni are now engineers at top companies across robotics, embedded systems, and product design.",
+    "link": ""
   },
   {
-    "title": "Grafito Innovations",
-    "logo": "assets/images/startups/grafito.webp",
-    "image": "assets/images/startups/grafito01.webp",
-    "desc": "Grafito Innovations develops robotic grafting technology for agriculture, offering faster, more precise, and scalable plant grafting solutions.",
-    "link": "https://www.grafito.in/",
-    "linkedin": "https://www.linkedin.com/company/grafito-in"
+    "name": "SolidWorks Certified Users",
+    "description": "Multiple team members hold SolidWorks certifications \u2014 a direct outcome of SPARK's CAD training programs.",
+    "link": ""
   }
 ]

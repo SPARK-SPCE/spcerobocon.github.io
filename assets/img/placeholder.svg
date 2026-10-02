@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#1a1a2e"/>
+  <rect x="1" y="1" width="398" height="298" fill="none" stroke="#0f3460" stroke-width="2"/>
+  <circle cx="200" cy="110" r="50" fill="#16213e" stroke="#0f3460" stroke-width="2"/>
+  <circle cx="200" cy="85" r="22" fill="#0f3460"/>
+  <path d="M140 200 Q200 160 260 200 Q260 240 140 240 Z" fill="#0f3460"/>
+  <text x="200" y="270" font-family="Arial" font-size="14" fill="#533483" text-anchor="middle">SPARK — SPCE ROBOCON</text>
+</svg>

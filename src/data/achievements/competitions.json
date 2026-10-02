@@ -1,84 +1,92 @@
 [
   {
-    "title": "ISRO Robotics Challenge (IRoCU 2025)",
-    "tag": "ISRO-RC",
-    "description": "Made it to the qualification round and secured a place among the top 24 teams across India.",
-    "photo": "assets/images/achievements/competitions/ISRO.webp"
+    "year": "2026",
+    "competition": "DD Robocon (ABU Robocon \u2014 Kung Fu Quest)",
+    "position": "Stage 1: 94/100",
+    "link": ""
   },
   {
-    "title": "LAM Research Challenge 2024",
-    "tag": "LAM-RESEARCH",
-    "description": "Participated with a cross-disciplinary project demonstrating firmware, hardware, systems engineering, and business acumen.",
-    "photo": "assets/images/achievements/competitions/LAM.webp"
+    "year": "2025",
+    "competition": "FCRCE Roborift",
+    "position": "Rank 1, 2 & 3 \u2014 Complete Podium Sweep",
+    "link": ""
   },
   {
-    "title": "LAM Research Challenge 2025",
-    "tag": "LAM-RESEARCH",
-    "description": "Finalists in The LAM Research Challenge 2025, a systems engineering competition.",
-    "photo": "assets/images/achievements/competitions/LAM2025.webp"
+    "year": "2025",
+    "competition": "SPRC Champions",
+    "position": "Position 1",
+    "link": ""
   },
   {
-    "title": "Mathworks Mini Drone Challenge 2024",
-    "tag": "MATHWORKS",
-    "description": "Secured AIR 7 in the MathWorks Mini Drone Challenge 2024, showcasing drone design, control, and simulation skills using MATLAB and Simulink for real-world problem solving.",
-    "photo": "assets/images/achievements/competitions/MINIDRONE.webp"
+    "year": "2024",
+    "competition": "FCRCE Roborift",
+    "position": "Rank 1 & 2",
+    "link": ""
   },
   {
-    "title": "Robocon'23",
-    "tag": "ROBOCON",
-    "description": "Took part in Robocon'23, an international robotics competition, and secured among 14th position (international) defeating all other NITs or IITs.",
-    "photo": "assets/images/achievements/competitions/ROBOCON.webp"
+    "year": "2023",
+    "competition": "DD Robocon National",
+    "position": "Best Technical Report Award",
+    "link": ""
   },
   {
-    "title": "FESTO International Productivity Contest",
-    "description": "(Mr Ajith A.M. , 2015 B.Tech Mech Engg) won Third prize for FESTO’s International Productivity Contest for the development of the Wall Climbing Robot (Germany 2015). This was with a fully sponsored trip to Hannover Messe, Germany. 2015 ",
-    "photo": "assets/images/achievements/competitions/festo.webp"
+    "year": "2022",
+    "competition": "Mesmerize \u2014 IIT Bombay",
+    "position": "Rank 1 (Mumbai Zonal)",
+    "link": ""
   },
   {
-    "title": "Janatics Automation Skill Challenge 2024",
-    "description": "(Mr. Arnav Mishra, 2026 B.tech Mech Engg) Secured a top position in the Janatics Automation Skill Challenge 2024 by demonstrating excellence in automation system design, control strategies, and practical implementation.",
-    "photo": "assets/images/achievements/competitions/janatics.webp"
+    "year": "2021",
+    "competition": "DD Robocon National",
+    "position": "AIR 19",
+    "link": ""
   },
   {
-    "title": "Swasraya Bharath Innovation Challenge",
-    "description": "Won 1st prize in Swasraya Bharath Innovation Challenge",
-    "photo": "assets/images/achievements/competitions/swasraya.webp"
+    "year": "2020",
+    "competition": "DD Robocon National",
+    "position": "AIR 9 + Best Tech Report (100/100)",
+    "link": ""
   },
   {
-    "title": "Hackathon for Social Good",
-    "description": "Secured 2nd place in the Hackathon for Social Good hosted by SIO Kerala, focusing on innovative solutions for societal challenges.",
-    "photo":"assets/images/achievements/competitions/SocGood.webp"
+    "year": "2019",
+    "competition": "DD Robocon National",
+    "position": "AIR 9 + Best Tech Report",
+    "link": ""
   },
   {
-    "title": "Robocon'24",
-    "tag": "ROBOCON",
-    "description": "Advanced to the second round of Robocon'24",
-    "photo": "assets/images/achievements/competitions/robocon24.webp"
+    "year": "2018",
+    "competition": "DD Robocon National",
+    "position": "AIR 13",
+    "link": ""
   },
   {
-    "title": "Eyantra'22",
-    "tag": "Eyantra",
-    "description": "All India Rank 7 in Eyantra'22 robotics competition organized by IIT Bombay"
+    "year": "2018",
+    "competition": "IIT Bombay International Robotics Challenge",
+    "position": "International Rank 2",
+    "link": ""
   },
   {
-    "title": "Eyantra'23",
-    "tag": "Eyantra",
-    "description": "All India Rank 2 in Eyantra'23 robotics competition organized by IIT Bombay"
+    "year": "2015",
+    "competition": "DD Robocon National",
+    "position": "AIR 4 \u2014 Best National Rank Ever",
+    "link": ""
   },
   {
-    "title": "Eyantra'24",
-    "tag": "Eyantra",
-    "description": "Participated in Eyantra'24 with a Self Balancing Bot project"
+    "year": "2014",
+    "competition": "VJTI Robotics Challenge",
+    "position": "Champions",
+    "link": ""
   },
   {
-    "title": "Eyantra'25",
-    "tag": "Eyantra",
-    "description": "Participating in Eyantra'25 with an FPGA-based Maze Solving Robot project"
+    "year": "2014\u20132021",
+    "competition": "VJTI Robotics",
+    "position": "Champions (Multiple Years)",
+    "link": ""
   },
   {
-    "title": "ISRO Rover Challenge",
-    "tag": "ISRO-RC",
-    "description": "Qualified for the second round of the ISRO Rover Challenge competition, with submissions for the second round due on May 15th."
+    "year": "2015\u20132025",
+    "competition": "SPRC",
+    "position": "Position 1 (Multiple Years)",
+    "link": ""
   }
-  
 ]

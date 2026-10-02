@@ -22,28 +22,28 @@ const ALT_TEXT = "Alumni logo";
 
 /* COMPANY LOGOS */ 
 const companyImages = [
-  "assets/images/companies/aws.webp",
-  "assets/images/companies/Broadcom.webp",
-  "assets/images/companies/caterpillar.webp",
-  "assets/images/companies/dell.webp",
-  "assets/images/companies/dxc.webp",
-  "assets/images/companies/grafito.webp",
-  "assets/images/companies/intel.webp",
-  "assets/images/companies/isro.webp",
-  "assets/images/companies/kbr.webp",
-  "assets/images/companies/nawe.webp",
-  "assets/images/companies/ns.webp",
-  "assets/images/companies/nvidia.webp",
-  "assets/images/companies/qualcomm.webp",
-  "assets/images/companies/samsung.webp",
-  "assets/images/companies/ti.webp",
-  "assets/images/companies/uidai.webp",
-  "assets/images/companies/bosh.webp",
-  "assets/images/companies/oracle.webp",
-  "assets/images/companies/IBM.webp",
-  "assets/images/companies/microsoft.webp",
-  "assets/images/companies/sandisk.webp",
-  "assets/images/companies/tesla.webp"
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg"
 
   
 
@@ -52,27 +52,27 @@ const companyImages = [
 /* UNIVERSITY LOGOS */
 const universityImages = [
   "assets/images/companies/Aalto.png",
-  "assets/images/companies/bits.webp",
+  "assets/img/placeholder.svg",
   "assets/images/companies/Delft.png",
-  "assets/images/companies/IIMB.webp",
+  "assets/img/placeholder.svg",
   "assets/images/companies/IISc.png",
   "assets/images/companies/IITM.svg",
-  "assets/images/companies/ku.webp",
+  "assets/img/placeholder.svg",
   "assets/images/companies/Northeastern.png",
-  "assets/images/companies/OSU.webp",
-  "assets/images/companies/purdue.webp",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
   "assets/images/companies/qut.png",
   "assets/images/companies/RWTH.svg",
-  "assets/images/companies/sit.webp",
-  "assets/images/companies/Teesside-University.webp",
-  "assets/images/companies/texas.webp",
-  "assets/images/companies/uc-san-diego.webp",
-  "assets/images/companies/ucdavis.webp",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
   "assets/images/companies/wisconsin-madison.png",
-  "assets/images/companies/wpi.webp",
-  "assets/images/companies/IITK.webp",
-  "assets/images/companies/IIMA.webp",
-  "assets/images/companies/ETH.webp"
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg",
+  "assets/img/placeholder.svg"
 ];
 
 function fillSlider(sliderId, images) {
@@ -102,12 +102,12 @@ const startupGrid = document.getElementById("startupGrid");
 if (startupGrid) {
   const startups = [
     {
-      src: "assets/images/startups/nawe.webp",
+      src: "assets/img/placeholder.svg",
       link: "https://www.nmotion.in/",
       name: "NAWE ROBOTICS"
     },
     {
-      src: "assets/images/startups/grafito.webp",
+      src: "assets/img/placeholder.svg",
       link: "https://www.grafito.in/",
       name: "GRAFITO INNOVATIONS"
     }

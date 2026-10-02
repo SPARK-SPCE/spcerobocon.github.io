@@ -1,7 +1,7 @@
 [
     {
         "name": "JOVIN SAVIO",
-        "photo": "assets/images/team/b12/JOVIN-SAVIO.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": [
         {
@@ -13,7 +13,7 @@
     
     {
         "name": "RAMAKRISHNA REDDY.K",
-        "photo": "assets/images/team/b12/RAMAKRISHNA-REDDY.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": [
         {
@@ -24,14 +24,14 @@
     },
     {
         "name": "ASWIN PK",
-        "photo": "assets/images/team/b12/logo.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": []
 
     },
     {
         "name": "RAHUL MANOJ",
-        "photo": "assets/images/team/b12/rahul-manoj.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": [
         {
@@ -43,21 +43,21 @@
     },
     {
         "name": "S SREEJIT",
-        "photo": "assets/images/team/b12/logo.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": []
 
     },
     {
         "name": "AKHIL VISAKH M",
-        "photo": "assets/images/team/b12/logo.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": []
 
     },
     {
         "name": "VIJIN A V",
-        "photo": "assets/images/team/b12/vijin-av.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": [
         {
@@ -70,7 +70,7 @@
     },
     {
         "name": "ANJALI K",
-        "photo": "assets/images/team/b12/logo.webp",
+        "photo": "assets/img/placeholder.svg",
         "role": "Team Member",
         "socials": []
 
