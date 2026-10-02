@@ -1,8 +1,15 @@
 [
   {
     "name": "Kabir Patil",
-    "photo": "/assets/img/team/kp.png",
     "role": "Captain",
+    "dept": "leadership",
+    "dept_label": "Leadership",
+    "photo": "/assets/img/team/kp.png",
+    "skills": [
+      "Strategy",
+      "Management",
+      "Robocon Operations"
+    ],
     "socials": [
       {
         "platform": "instagram",
@@ -16,8 +23,15 @@
   },
   {
     "name": "Siddharth Dabhane",
-    "photo": "/assets/img/team/sd.png",
     "role": "Vice Captain",
+    "dept": "leadership",
+    "dept_label": "Leadership",
+    "photo": "/assets/img/team/sd.png",
+    "skills": [
+      "Coordination",
+      "Planning",
+      "Execution"
+    ],
     "socials": [
       {
         "platform": "instagram",
@@ -31,8 +45,15 @@
   },
   {
     "name": "Sankalp Nagane",
-    "photo": "/assets/img/team/sn.png",
     "role": "Manager",
+    "dept": "leadership",
+    "dept_label": "Leadership",
+    "photo": "/assets/img/team/sn.png",
+    "skills": [
+      "Team Management",
+      "Logistics",
+      "Resource Planning"
+    ],
     "socials": [
       {
         "platform": "instagram",
@@ -46,8 +67,15 @@
   },
   {
     "name": "Mayank Nikumbh",
+    "role": "Electrical Co-Head",
+    "dept": "electrical",
+    "dept_label": "Electrical",
     "photo": "/assets/img/team/mn.png",
-    "role": "Electronics Co-Head",
+    "skills": [
+      "PCB Design",
+      "Circuit Analysis",
+      "Altium Designer"
+    ],
     "socials": [
       {
         "platform": "instagram",
@@ -61,8 +89,15 @@
   },
   {
     "name": "Punit Gharat",
+    "role": "Electrical Co-Head",
+    "dept": "electrical",
+    "dept_label": "Electrical",
     "photo": "/assets/img/team/pg.png",
-    "role": "Electronics Co-Head",
+    "skills": [
+      "Wiring Harnesses",
+      "ESP32 / Microcontrollers",
+      "Sensor Fusion"
+    ],
     "socials": [
       {
         "platform": "instagram",
@@ -76,8 +111,15 @@
   },
   {
     "name": "Manjeet Sharma",
+    "role": "Mechanical Co-Head",
+    "dept": "mechanical",
+    "dept_label": "Mechanical",
     "photo": "/assets/img/team/ms.png",
-    "role": "Mech Co-Head",
+    "skills": [
+      "SolidWorks 3D CAD",
+      "CNC Machining",
+      "Chassis Fabrication"
+    ],
     "socials": [
       {
         "platform": "instagram",
@@ -91,8 +133,15 @@
   },
   {
     "name": "Shawn Massy",
+    "role": "Mechanical Co-Head",
+    "dept": "mechanical",
+    "dept_label": "Mechanical",
     "photo": "/assets/img/team/sm.png",
-    "role": "Mech Co-Head",
+    "skills": [
+      "CATIA Design",
+      "3D Printing & Prototyping",
+      "Laser Cutting"
+    ],
     "socials": [
       {
         "platform": "instagram",
@@ -106,8 +155,15 @@
   },
   {
     "name": "Samyak Shelare",
-    "photo": "/assets/img/team/ss.png",
     "role": "Coding Lead",
+    "dept": "coding",
+    "dept_label": "Coding",
+    "photo": "/assets/img/team/ss.png",
+    "skills": [
+      "Autonomous Navigation",
+      "Image Processing (OpenCV)",
+      "Embedded C / ROS"
+    ],
     "socials": [
       {
         "platform": "instagram",
@@ -121,8 +177,15 @@
   },
   {
     "name": "Riddhi",
+    "role": "Non-Technical Lead",
+    "dept": "nontech",
+    "dept_label": "Non-Technical",
     "photo": "/assets/img/team/rn.png",
-    "role": "Non-Tech",
+    "skills": [
+      "Social Media & PR",
+      "Outreach",
+      "Community Engagement"
+    ],
     "socials": [
       {
         "platform": "instagram",
@@ -136,8 +199,15 @@
   },
   {
     "name": "Prathamesh Kadam",
+    "role": "Non-Technical Lead",
+    "dept": "nontech",
+    "dept_label": "Non-Technical",
     "photo": "/assets/img/team/pk.png",
-    "role": "Non-Tech",
+    "skills": [
+      "Technical Documentation",
+      "Operations",
+      "Sponsorship Outreach"
+    ],
     "socials": [
       {
         "platform": "instagram",
@@ -151,8 +221,15 @@
   },
   {
     "name": "Vaishnavi Shinde",
+    "role": "Non-Technical Lead",
+    "dept": "nontech",
+    "dept_label": "Non-Technical",
     "photo": "/assets/img/team/vs.png",
-    "role": "Non-Tech",
+    "skills": [
+      "Content Strategy",
+      "Event Management",
+      "Creative Media"
+    ],
     "socials": [
       {
         "platform": "instagram",
